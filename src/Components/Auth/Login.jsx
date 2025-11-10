@@ -5,6 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Eye, EyeOff } from 'lucide-react';
 import { signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
+import logo from "../../assets/img/logo.png"
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -69,9 +70,12 @@ const Login = () => {
   return (
     <div className="flex justify-center min-h-screen items-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 border-2 shadow-2xl py-5">
+        <div className="flex justify-center items-center ">
+          <img  className="h-10 w-25 ml-4 md:ml-2 lg:ml-0 object-cover rounded-lg" src={logo} alt="this is a logo" />
         <h2 className="font-semibold text-2xl text-center">
           Login your account
         </h2>
+        </div>
         <form onSubmit={handleLogin} className="card-body">
           <fieldset className="fieldset">
             {/* Email */}

@@ -17,10 +17,8 @@ const Links = <>
 
 
 const Navbar = () => {
-//   const { user, logOut } = use(AuthContext);
-//   const {  logOut } = use(AuthContext);
-  const user = ""
-  const logOut = "logout"
+  const { user, logOut } = use(AuthContext);
+
   const handleLogOut = () => {
     // console.log("user trying to LogOut");
     logOut()
@@ -47,13 +45,13 @@ const Navbar = () => {
       {Links}
       {user ? <button onClick={handleLogOut} className="btn btn-primary px-10 ">
             LogOut
-          </button>: <Link to="/login" className="btn btn-primary px-10 ">
+          </button>: <Link to="/auth/login" className="btn btn-primary px-10 ">
             Login
           </Link>}
       </ul>
     </div>
        <Link to='/'>
-       <img  className="h-10 w-60 ml-4 md:ml-2 lg:ml-0 object-fit rounded-lg" src={logo} alt="" />
+       <img  className="h-10 w-25 ml-4 md:ml-2 lg:ml-0 object-cover rounded-lg" src={logo} alt="this is a logo" />
        </Link>
   </div>
   <div className="navbar-center hidden lg:flex">

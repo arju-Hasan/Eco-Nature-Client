@@ -5,6 +5,8 @@ import { Suspense } from "react";
 import Home from "../Pages/Home";
 import Loader from "../Components/Loader/Loading";
 import Login from "../Components/Auth/Login";
+import Register from "../Components/Auth/Register";
+
 
 
 const withSuspense = (Component) => (
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
         path: "/auth/login",
         element: withSuspense(Login)
       },
+      {
+        path: "/register",
+        element: withSuspense(Register)
+      }
       
       // {
       //   path: "/dashboard",
@@ -62,8 +68,5 @@ export const router = createBrowserRouter([
     path: "*",
     element: withSuspense(Error404),
   },
-  {
-    path :"/auth/login",
-    element: <Login></Login>
-  }
+ 
 ]);

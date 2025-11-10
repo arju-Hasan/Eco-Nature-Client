@@ -5,6 +5,8 @@ import { Eye, EyeOff } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from "firebase/auth";
+import logo from "../../assets/img/logo.png"
+
 
 const Register = () => {
   const { createUser, setUser, updateUser, auth, Googleprovider } = use(AuthContext);
@@ -81,9 +83,12 @@ const Register = () => {
   return (
     <div className="flex justify-center min-h-screen items-center">
       <div className="card w-full max-w-sm shrink-0 shadow-2xl shadow-gray-200 border-2 py-5">
-        <h2 className="font-semibold text-2xl text-center">
-          Register your account
-        </h2>
+        <div className="flex justify-center items-center ">
+                  <img  className="h-10 w-25 ml-4 md:ml-2 lg:ml-0 object-cover rounded-lg" src={logo} alt="this is a logo" />
+                <h2 className="font-semibold text-2xl text-center">
+                  Register your account
+                </h2>
+                </div>       
         <form onSubmit={handleRegister} className="card-body">
           <fieldset className="fieldset">
             {/* Name */}
