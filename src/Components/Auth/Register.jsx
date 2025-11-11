@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Eye, EyeOff } from "lucide-react";
@@ -9,7 +9,7 @@ import logo from "../../assets/img/logo.png"
 
 
 const Register = () => {
-  const { createUser, setUser, updateUser, auth, Googleprovider } = use(AuthContext);
+  const { createUser, setUser, updateUser, auth, Googleprovider } = useContext(AuthContext);
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
