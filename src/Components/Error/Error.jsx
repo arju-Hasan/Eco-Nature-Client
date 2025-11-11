@@ -11,7 +11,7 @@ const Error404 = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#15166c] text-white">
+    <div className="flex flex-col min-h-screen bg-primary text-white">
       
 
       
@@ -31,7 +31,7 @@ const Error404 = () => {
           href="/"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block px-5 py-3 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg transition-colors duration-300"
+          className="inline-block px-5 py-3 rounded-full bg-primary hover:bg-primary shadow-lg transition-colors duration-300"
         >
           Go Back Home
         </motion.a>

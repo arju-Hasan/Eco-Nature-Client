@@ -6,6 +6,8 @@ import Home from "../Pages/Home";
 import Loader from "../Components/Loader/Loading";
 import Login from "../Components/Auth/Login";
 import Register from "../Components/Auth/Register";
+import Challenges from "../Pages/Challenges";
+import Listing from "../Pages/Listing";
 
 
 
@@ -40,6 +42,14 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: withSuspense(Register)
+      },
+      {
+        path: '/challenges',
+        element: withSuspense(Challenges)
+      },
+      {
+        path:"/listing",
+        element: withSuspense(Listing)
       }
       
       // {

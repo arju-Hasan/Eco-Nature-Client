@@ -2,7 +2,7 @@ import 'animate.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from "react-router";
-import Noimg from "../../assets/img/Noimg.png";
+import Noimg from "../../assets/img/active.png";
 import { useEffect } from 'react';
 
 
@@ -18,7 +18,7 @@ const NoSkillsPage = ({setSearch}) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-grow flex justify-center items-center bg-blue-700">
+      <main className="flex-grow flex justify-center items-center bg-primary">
         <div className="text-center">
           <img 
            data-aos="zoom-in"
@@ -31,7 +31,7 @@ const NoSkillsPage = ({setSearch}) => {
           </p>
           <Link
             onClick={() => setSearch("")}
-            className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition"
+            className="bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition"
           >
             Browse All Skills
           </Link>

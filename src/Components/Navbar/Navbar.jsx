@@ -10,8 +10,8 @@ import { toast,  } from "react-hot-toast";
 
 const Links = <>
     <NavLink to="/">Home</NavLink>
-        <NavLink to="/all-skills">All Skills</NavLink>
-        <NavLink to="/profile">Profile</NavLink>
+        <NavLink to="/challenges">Challenges</NavLink>
+        <NavLink to="/Listing">Listing</NavLink>
         <NavLink to="/dashboard">Dashboard</NavLink>
 </>
 
@@ -65,16 +65,7 @@ const Navbar = () => {
           src={`${user ? user.photoURL : userIcon}`}
           alt="not found"
         />
-        <ul
-        tabIndex="-1"
-        className="menu menu-sm dropdown-content absolute right-0 md:-right-40 top-5  p-4 mt-3 shadow">
-          <span className="font-bold text-lg text-center">
-            {user? user.displayName : ""} <br />
-                   
-          </span>
-          
-          
-      </ul>
+        
     </div>
     
        {user ? (
