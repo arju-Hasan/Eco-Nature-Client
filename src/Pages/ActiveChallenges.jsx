@@ -3,28 +3,28 @@ import MyContainer from "../provider/MyContainer";
 import Loading from "../Components/Loader/Loading";
 import { Link } from "react-router";
 import NoSkillsError from "../Components/Error/NoSkillsError";
-import { Search } from 'lucide-react';
+import { Search, Users } from 'lucide-react';
 import { FaStar } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const ActiveChallenges = () => {
-  const [skills, setSkills] = useState([]);
+  const [Challange, setChallange] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("/Skill-Data.json")
+    fetch("/challange-Data.json")
       .then((res) => res.json())
-      .then((data) => setSkills(data))
+      .then((data) => setChallange(data))
       .catch((err) => console.error("Error fetching challenges", err));
   }, []);
   useEffect(() => {
   AOS.init({ duration: 800, once: true });
 }, []);
   
- const filteredSkills = skills.filter((skill) =>
-  skill.skillName.toLowerCase().includes(search.toLowerCase()) ||
-  skill.description.toLowerCase().includes(search.toLowerCase())
+ const filteredChallange = Challange.filter((Challange) =>
+  Challange.title.toLowerCase().includes(search.toLowerCase()) ||
+  Challange.description.toLowerCase().includes(search.toLowerCase())
 );
 
   return (
@@ -52,41 +52,47 @@ const ActiveChallenges = () => {
         <section className="">
           <div className="container mx-auto px-4">
   
-            {skills.length === 0 ? (
+            {Challange.length === 0 ? (
               <Loading />
-            ) : filteredSkills.length === 0 ? (
+            ) : filteredChallange.length === 0 ? (
              <NoSkillsError setSearch={setSearch}></NoSkillsError>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredSkills.map((skill, index) => (
-                  <div key={skill.skillId} 
+                {filteredChallange.map((Challange, index) => (
+                  <div key={Challange._id} 
                   data-aos={index % 2 === 0 ? "fade-up" : "fade-right"}
                   className="card bg-white shadow-xl">
                     <div className="card-body">
                       <img
-                        src={skill.image}
-                        alt={skill.skillName}
+                        src={Challange.imageUrl}
+                        alt={Challange.title}
                         className="w-full h-60 object-cover mb-4 rounded-xl transform transition-transform duration-700 ease-in-out hover:scale-110"
                       />
-                      <h4 className="card-title text-primary">
-                        {skill.skillName}
-                      </h4>
-                      <p>{skill.description}</p>
-                      <p className="text-sm text-accent">
-                        Provider: {skill.providerName}
+                    <div className="flex justify-between items-center">
+                      <p className="text-sm text-accent  rounded-xl inline-block px-2 py-0.5">
+                        {Challange.category}
                       </p>
-                      <p className="text-sm text-accent">
-                        Price: ${skill.price}
+                      <span className="text-sm font-medium">{Challange.duration} days</span>
+                    </div>
+                      <h4 className="card-title text-primary">
+                        {Challange.title}
+                      </h4>
+                      <p>{Challange.description}</p>
+                      
+                      <div className="flex justify-between">
+                        <p className="text-sm text-accent">
+                        startDate: {Challange.startDate}
                       </p>
                       <p className="text-sm text-accent flex justify-start items-center gap-2">
-                        Rating: {skill.rating} <FaStar className='text-primary' />
+                        endDate: {Challange.endDate} 
                       </p>
-                      <p className="text-sm text-accent">
-                        Slots Available: {skill.slotsAvailable}
+                      </div>
+                      <p className="text-xl text-accent flex justify-start items-center gap-4">
+                         <Users /> {Challange.participants}
                       </p>
                       <div className="card-actions justify-end">
                         <Link
-                          to={`/skills/${skill.skillId}`}
+                          to={`/challange/${Challange._id}`}
                           className="text-primary font-semibold btn cursor-pointer hover:underline"
                         >
                           Read More

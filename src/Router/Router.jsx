@@ -8,6 +8,8 @@ import Login from "../Components/Auth/Login";
 import Register from "../Components/Auth/Register";
 import Challenges from "../Pages/Challenges";
 import Listing from "../Pages/Listing";
+import ChallangeDetails from "../Pages/ChallangeDetails";
+import PrivateRoute from "../provider/PrivateRoute";
 
 
 
@@ -50,7 +52,16 @@ export const router = createBrowserRouter([
       {
         path:"/listing",
         element: withSuspense(Listing)
-      }
+      },
+        {
+        path: "/challange/:id",
+        element: (
+          <PrivateRoute>
+            {withSuspense(ChallangeDetails)}
+          </PrivateRoute>
+        ),
+      },
+      
       
       // {
       //   path: "/dashboard",
@@ -61,7 +72,7 @@ export const router = createBrowserRouter([
       //   ),
       // },
       // {
-      //   path: "/skills/:id",
+      //   path: "/challange/:id",
       //   element: (
       //     <PrivateRoute>
       //       {withSuspense(SkillDetails)}
