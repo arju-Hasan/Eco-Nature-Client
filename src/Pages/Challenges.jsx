@@ -1,126 +1,242 @@
+// import React, { useState } from "react";
+// // import ActiveChallengesCard from "../Components/ActiveChallengesCard";
+// // import Loading from "./Loading";
+// import useAllChallenges from "../Hooks/useAllChallenges";
+// import Loader from "../Components/Loader/Loading";
+// 
+// const Challenges = () => {
+//   // Filters input state
+//   const [participantsMinInput, setParticipantsMinInput] = useState("");
+//   const [participantsMaxInput, setParticipantsMaxInput] = useState("");
+//   const [categoryInput, setCategoryInput] = useState("");
+//   const [startDateFromInput, setStartDateFromInput] = useState("");
+//   const [startDateToInput, setStartDateToInput] = useState("");
+// 
+//   // Filters applied state (used in hook)
+//   const [appliedFilters, setAppliedFilters] = useState({});
+// 
+//   // Predefined categories for dropdown
+//   const categories = [
+//     "Waste Reduction",
+//     "Energy Saving",
+//     "Water Conservation",
+//     "Community Clean-Up",
+//     "Sustainable Diet",
+//     "Plastic-Free July"
+//   ];
+// 
+//   // Apply filters button
+//   const handleApplyFilters = () => {
+//     const f = {};
+//     if (participantsMinInput) f.participantsMin = participantsMinInput;
+//     if (participantsMaxInput) f.participantsMax = participantsMaxInput;
+//     if (categoryInput) f.category = categoryInput;
+//     if (startDateFromInput) f.startDateFrom = startDateFromInput;
+//     if (startDateToInput) f.startDateTo = startDateToInput;
+//     setAppliedFilters(f);
+//   };
+// 
+//   const { challenges, loading, error } = useAllChallenges(appliedFilters);
+// 
+//   // Safe sorting
+//   const sortedChallenges = [...challenges]
+//     .filter(challenge => challenge && challenge._id)
+//     .sort((a, b) => b._id.localeCompare(a._id));
+// 
+//   return (
+//     <div className="max-w-7xl mx-auto px-4 py-10">
+//       <h2 className="text-3xl text-center py-5 font-bold mb-6 text-[#297B33]">All Challenges</h2>
+// 
+//       {/* Filters UI */}
+//       <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4 px-6 md:px-12">
+//         <input
+//           type="number"
+//           placeholder="Min Participants"
+//           value={participantsMinInput}
+//           onChange={(e) => setParticipantsMinInput(e.target.value)}
+//           className="input input-bordered w-full"
+//         />
+//         <input
+//           type="number"
+//           placeholder="Max Participants"
+//           value={participantsMaxInput}
+//           onChange={(e) => setParticipantsMaxInput(e.target.value)}
+//           className="input input-bordered w-full"
+//         />
+//         {/* Category Dropdown */}
+//         <select
+//           value={categoryInput}
+//           onChange={(e) => setCategoryInput(e.target.value)}
+//           className="select select-bordered w-full"
+//         >
+//           <option value="">All Categories</option>
+//           {categories.map((cat) => (
+//             <option key={cat} value={cat}>{cat}</option>
+//           ))}
+//         </select>
+//         <input
+//           type="date"
+//           placeholder="Start Date From"
+//           value={startDateFromInput}
+//           onChange={(e) => setStartDateFromInput(e.target.value)}
+//           className="input input-bordered w-full"
+//         />
+//         <input
+//           type="date"
+//           placeholder="Start Date To"
+//           value={startDateToInput}
+//           onChange={(e) => setStartDateToInput(e.target.value)}
+//           className="input input-bordered w-full"
+//         />
+//         {/* Apply Filter Button */}
+//         <button
+//           onClick={handleApplyFilters}
+//           className="btn bg-[#297B33] text-white hover:bg-[#82B532] w-full"
+//         >
+//           Apply Filter
+//         </button>
+//       </div>
+// 
+//       {/* Content */}
+//       {loading && <Loader />}
+//       {error && <p className="text-center text-red-500">Error loading challenges.</p>}
+//       {!loading && !error && !sortedChallenges.length && (
+//         <p className="text-center text-gray-500">No challenges found.</p>
+//       )}
+// 
+//       {!loading && !error && sortedChallenges.length > 0 && (
+//         <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
+//           {/* {sortedChallenges.map((challenge) => (
+//             // <ActiveChallengesCard key={challenge._id} challenge={challenge} />
+//           ))} */}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+// 
+// 
+// 
+// 
+// 
+// export default Challenges;
 
 
 
-
-
-import React, { useState } from "react";
-// import ActiveChallengesCard from "../Components/ActiveChallengesCard";
-// import Loading from "./Loading";
-import useAllChallenges from "../Hooks/useAllChallenges";
-import Loader from "../Components/Loader/Loading";
+import { useEffect, useState } from "react";
+import MyContainer from "../provider/MyContainer";
+import Loading from "../Components/Loader/Loading";
+import { Link } from "react-router";
+import NoSkillsError from "../Components/Error/NoSkillsError";
+import { RefreshCw, Search, Users } from 'lucide-react';
+import { FaStar } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Challenges = () => {
-  // Filters input state
-  const [participantsMinInput, setParticipantsMinInput] = useState("");
-  const [participantsMaxInput, setParticipantsMaxInput] = useState("");
-  const [categoryInput, setCategoryInput] = useState("");
-  const [startDateFromInput, setStartDateFromInput] = useState("");
-  const [startDateToInput, setStartDateToInput] = useState("");
+  const [Challange, setChallange] = useState([]);
+  const [search, setSearch] = useState("");
 
-  // Filters applied state (used in hook)
-  const [appliedFilters, setAppliedFilters] = useState({});
-
-  // Predefined categories for dropdown
-  const categories = [
-    "Waste Reduction",
-    "Energy Saving",
-    "Water Conservation",
-    "Community Clean-Up",
-    "Sustainable Diet",
-    "Plastic-Free July"
-  ];
-
-  // Apply filters button
-  const handleApplyFilters = () => {
-    const f = {};
-    if (participantsMinInput) f.participantsMin = participantsMinInput;
-    if (participantsMaxInput) f.participantsMax = participantsMaxInput;
-    if (categoryInput) f.category = categoryInput;
-    if (startDateFromInput) f.startDateFrom = startDateFromInput;
-    if (startDateToInput) f.startDateTo = startDateToInput;
-    setAppliedFilters(f);
-  };
-
-  const { challenges, loading, error } = useAllChallenges(appliedFilters);
-
-  // Safe sorting
-  const sortedChallenges = [...challenges]
-    .filter(challenge => challenge && challenge._id)
-    .sort((a, b) => b._id.localeCompare(a._id));
+  useEffect(() => {
+    fetch("/challange-Data.json")
+      .then((res) => res.json())
+      .then((data) => setChallange(data))
+      .catch((err) => console.error("Error fetching challenges", err));
+  }, []);
+  useEffect(() => {
+  AOS.init({ duration: 800, once: true });
+}, []);
+  
+ const filteredChallange = Challange.filter((Challange) =>
+  Challange.title.toLowerCase().includes(search.toLowerCase()) ||
+  Challange.description.toLowerCase().includes(search.toLowerCase())
+);
+  const reset = () => { setSearch('');  };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl text-center py-5 font-bold mb-6 text-[#297B33]">All Challenges</h2>
+    <div className="bg-base-100 pt-0">
+      <div className="bg-base-100">
+     <div className="flex flex-col sm:flex-row justify-between items-center container mx-auto">
+      <h3 className="text-2xl font-bold ml-4 p-4 text-center hidden md:block">
+    Active Challenge
+        </h3>
 
-      {/* Filters UI */}
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4 px-6 md:px-12">
-        <input
-          type="number"
-          placeholder="Min Participants"
-          value={participantsMinInput}
-          onChange={(e) => setParticipantsMinInput(e.target.value)}
-          className="input input-bordered w-full"
+     {/* search */}
+        <div className="relative m-2 text-center w-full sm:w-auto md:px-20 flex justify-center sm:justify-end">
+      <input
+        type="text"
+        placeholder="Search challange ....."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-[80%] mx-auto sm:w-62 md:w-86 px-6 py-2 pr-10 rounded-full border border-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
         />
-        <input
-          type="number"
-          placeholder="Max Participants"
-          value={participantsMaxInput}
-          onChange={(e) => setParticipantsMaxInput(e.target.value)}
-          className="input input-bordered w-full"
-        />
-        {/* Category Dropdown */}
-        <select
-          value={categoryInput}
-          onChange={(e) => setCategoryInput(e.target.value)}
-          className="select select-bordered w-full"
-        >
-          <option value="">All Categories</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>{cat}</option>
-          ))}
-        </select>
-        <input
-          type="date"
-          placeholder="Start Date From"
-          value={startDateFromInput}
-          onChange={(e) => setStartDateFromInput(e.target.value)}
-          className="input input-bordered w-full"
-        />
-        <input
-          type="date"
-          placeholder="Start Date To"
-          value={startDateToInput}
-          onChange={(e) => setStartDateToInput(e.target.value)}
-          className="input input-bordered w-full"
-        />
-        {/* Apply Filter Button */}
-        <button
-          onClick={handleApplyFilters}
-          className="btn bg-[#297B33] text-white hover:bg-[#82B532] w-full"
-        >
-          Apply Filter
-        </button>
+        <RefreshCw  onClick={reset} className="absolute right-17 md:right-23 sm:right-3 top-1/2 transform -translate-y-1/2 text-gray-600" />
+        
+       </div>
+       
       </div>
-
-      {/* Content */}
-      {loading && <Loader />}
-      {error && <p className="text-center text-red-500">Error loading challenges.</p>}
-      {!loading && !error && !sortedChallenges.length && (
-        <p className="text-center text-gray-500">No challenges found.</p>
-      )}
-
-      {!loading && !error && sortedChallenges.length > 0 && (
-        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
-          {/* {sortedChallenges.map((challenge) => (
-            // <ActiveChallengesCard key={challenge._id} challenge={challenge} />
-          ))} */}
-        </div>
-      )}
+      </div>
+      <MyContainer>
+        <section className="">
+          <div className="container mx-auto px-4">
+  
+            {Challange.length === 0 ? (
+              <Loading />
+            ) : filteredChallange.length === 0 ? (
+             <NoSkillsError setSearch={setSearch}></NoSkillsError>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredChallange.map((Challange, index) => (
+                  <div key={Challange._id} 
+                  data-aos={index % 2 === 0 ? "fade-up" : "fade-right"}
+                  className="card bg-white shadow-xl">
+                    <div className="card-body">
+                      <img
+                        src={Challange.imageUrl}
+                        alt={Challange.title}
+                        className="w-full h-60 object-cover mb-4 rounded-xl transform transition-transform duration-700 ease-in-out hover:scale-110"
+                      />
+                    <div className="flex justify-between items-center">
+                      <p className="text-sm text-accent  rounded-xl inline-block px-2 py-0.5">
+                        {Challange.category}
+                      </p>
+                      <span className="text-sm font-medium">{Challange.duration} days</span>
+                    </div>
+                      <h4 className="card-title text-primary">
+                        {Challange.title}
+                      </h4>
+                      <p>{Challange.description}</p>
+                      
+                      <div className="flex justify-between">
+                        <p className="text-sm text-accent">
+                        startDate: {Challange.startDate}
+                      </p>
+                      <p className="text-sm text-accent flex justify-start items-center gap-2">
+                        endDate: {Challange.endDate} 
+                      </p>
+                      </div>
+                      <p className="text-xl text-accent flex justify-start items-center gap-4">
+                         <Users /> {Challange.participants}
+                      </p>
+                      <div className="card-actions justify-end">
+                        <Link
+                          to={`/challange/${Challange._id}`}
+                          className="text-primary font-semibold btn cursor-pointer hover:underline"
+                        >
+                          Read More
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      </MyContainer>
     </div>
   );
 };
-
-
 
 
 

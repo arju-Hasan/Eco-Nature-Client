@@ -11,7 +11,7 @@ import { toast,  } from "react-hot-toast";
 const Links = <>
     <NavLink to="/">Home</NavLink>
         <NavLink to="/challenges">Challenges</NavLink>
-        <NavLink to="/Listing">Listing</NavLink>
+        <NavLink to="/Tips">Tips</NavLink>
         <NavLink to="/dashboard">Dashboard</NavLink>
 </>
 
@@ -41,11 +41,11 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex="-1"
-        className="menu menu-sm dropdown-content grid justify-center items-center gap-4 p-4 bg-gray-400 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content grid justify-center items-center gap-4 p-4 bg-gray-400 rounded-box z-1 mt-3 w-52 p-2 shadow ">
       {Links}
-      {user ? <button onClick={handleLogOut} className="btn btn-primary px-10 ">
+      {user ? <button onClick={handleLogOut} className="btn btn-primary px-10 hover:bg-secondary ">
             LogOut
-          </button>: <Link to="/auth/login" className="btn btn-primary px-10 ">
+          </button>: <Link to="/auth/login" className="btn btn-primary px-10 hover:bg-secondary ">
             Login
           </Link>}
       </ul>
@@ -55,7 +55,7 @@ const Navbar = () => {
        </Link>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal text-xl text-primary  px-1 gap-5">
+    <ul className="menu menu-horizontal text-xl text-primary  px-1 gap-5  ">
     {Links}
     </ul>
   </div>
@@ -71,14 +71,14 @@ const Navbar = () => {
        {user ? (
   <button
     onClick={handleLogOut}
-    className="btn btn-primary px-10 ml-4 hidden sm:hidden md:inline-flex lg:inline-flex"
+    className="btn btn-primary hover:bg-secondary px-10 ml-4 hidden sm:hidden md:inline-flex lg:inline-flex"
   >
     LogOut
   </button>
 ) : (
   <Link
     to="/auth/login"
-    className="btn btn-primary px-10 ml-4 hidden sm:hidden md:inline-flex lg:inline-flex"
+    className="btn btn-primary hover:bg-secondary px-10 ml-4 hidden sm:hidden md:inline-flex lg:inline-flex"
   >
     Login
   </Link>

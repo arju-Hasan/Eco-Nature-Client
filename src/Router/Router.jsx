@@ -7,7 +7,7 @@ import Loader from "../Components/Loader/Loading";
 import Login from "../Components/Auth/Login";
 import Register from "../Components/Auth/Register";
 import Challenges from "../Pages/Challenges";
-import Listing from "../Pages/Listing";
+import Tips from "../Pages/Tips";
 import ChallangeDetails from "../Pages/ChallangeDetails";
 import PrivateRoute from "../provider/PrivateRoute";
 
@@ -50,8 +50,8 @@ export const router = createBrowserRouter([
         element: withSuspense(Challenges)
       },
       {
-        path:"/listing",
-        element: withSuspense(Listing)
+        path:"/Tips",
+        element: withSuspense(Tips)
       },
         {
         path: "/challange/:id",
