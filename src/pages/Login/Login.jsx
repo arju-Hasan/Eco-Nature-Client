@@ -6,7 +6,7 @@ import useAxios from "../../hooks/useAxios";
 import loginImage from "../../assets/loginImage.svg";
 
 const Login = () => {
-  const { signIn, googleSignIn } = useAuth();
+  const { signIn, googleSignIn, setLoading } = useAuth();
   const axios = useAxios();
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,6 +21,7 @@ const Login = () => {
     signIn(data.email, data.password)
       .then((result) => {
         toast.success("Login Successful!");
+        setLoading(false)
         navigate(from, { replace: true });
         console.log(result);
       })
@@ -42,6 +43,7 @@ const Login = () => {
           .then((dbData) => {
             toast.success("Login Successful!");
             navigate(from, { replace: true });
+            setLoading(false)
             console.log(dbData);
           })
           .catch((dbError) => toast.error("Failed to process Google Sign-in."));
