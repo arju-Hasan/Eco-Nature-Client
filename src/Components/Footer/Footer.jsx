@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer flex flex-col lg:flex-row lg:justify-between p-10 bg-base-200 text-base-content mt-10">
+    <footer className="footer flex flex-col lg:flex-row lg:justify-between p-10 bg-base-300 text-base-content mt-10">
       <aside>
         <p className="text-2xl font-bold text-primary">HabitTracker</p>
         <p>

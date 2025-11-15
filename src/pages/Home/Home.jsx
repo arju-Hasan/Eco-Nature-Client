@@ -73,8 +73,8 @@ const Home = () => {
                   Start tracking your daily habits and build a productive
                   streak.
                 </p>
-                <Link to="/add-habit" className="btn btn-primary">
-                  Add New Habit
+                <Link to="/add-challenges" className="btn btn-primary">
+                  Add New Challenge
                 </Link>
               </div>
             </div>

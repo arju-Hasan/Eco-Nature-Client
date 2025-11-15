@@ -1,4 +1,4 @@
-// src/layout/MainLayout.jsx
+
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -9,7 +9,7 @@ const MainLayout = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-[calc(100vh-300px)]">
+      <div className="min-h-[calc(100vh-337px)]">
         <Outlet />
       </div>
       <Footer />

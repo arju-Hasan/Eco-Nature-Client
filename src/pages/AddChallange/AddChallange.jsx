@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 
-const AddHabit = () => {
+const AddChallenge = () => {
   const { user } = useAuth();
   const axios = useAxios();
   const {
@@ -14,20 +14,20 @@ const AddHabit = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const habitData = {
+    const challengeData = {
       ...data,
       userName: user.displayName,
       userEmail: user.email,
     };
 
     axios
-      .post("/habits", habitData)
+      .post("/challenges", challengeData)
       .then((res) => {
         if (res.data.insertedId) {
-          toast.success("New Habit Added Successfully!");
+          toast.success("New Challenge Added Successfully!");
           reset();
         } else {
-          toast.error("Failed to add habit.");
+          toast.error("Failed to add challenge.");
         }
       })
       .catch((error) => {
@@ -44,13 +44,13 @@ const AddHabit = () => {
   return (
     <div className="max-w-4xl mx-auto p-8 bg-base-100 shadow-xl rounded-lg my-10">
       <h1 className="text-3xl font-bold text-center text-primary mb-6">
-        Add Your New Habit
+        Add Your New Challenge
       </h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Habit Title*</span>
+            <span className="label-text">Challenge Title*</span>
           </label>
           <input
             type="text"
@@ -75,11 +75,11 @@ const AddHabit = () => {
             <option value="" disabled>
               Select a category
             </option>
-            <option value="Morning">Morning</option>
-            <option value="Work">Work</option>
-            <option value="Fitness">Fitness</option>
-            <option value="Evening">Evening</option>
-            <option value="Study">Study</option>
+            <option value="Waste Reduction">Waste Reduction</option>
+            <option value="Energy Conservation">Energy Conservation</option>
+            <option value="Water Conservation">Water Conservation</option>
+            <option value="Sustainable Transport">Sustainable Transport</option>
+            <option value="Green Living">Green Living</option>
           </select>
           {errors.category && (
             <span className="text-red-600 mt-1 text-xs">
@@ -147,7 +147,7 @@ const AddHabit = () => {
         </div>
         <div className="form-control mt-6">
           <button type="submit" className="btn btn-primary btn-lg">
-            Add Habit
+            Add Challenge
           </button>
         </div>
       </form>
@@ -155,4 +155,4 @@ const AddHabit = () => {
   );
 };
 
-export default AddHabit;
+export default AddChallenge;

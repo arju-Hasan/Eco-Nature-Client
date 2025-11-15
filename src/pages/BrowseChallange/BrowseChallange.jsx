@@ -2,25 +2,25 @@ import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios"; 
 
-const BrowsePublicHabits = () => {
-  const [habits, setHabits] = useState([]);
+const BrowseChallange = () => {
+  const [challenges, setChallenges] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
   const axios = useAxios();
 
 
-  const fetchPublicHabits = useCallback(
+  const fetchPublicChallenges = useCallback(
     (url) => {
       setLoading(true);
       axios
         .get(url)
         .then((res) => {
-          setHabits(res.data);
+          setChallenges(res.data);
           setLoading(false);
         })
         .catch((error) => {
-          console.error("Failed to fetch public habits:", error);
+          console.error("Failed to fetch public challenges:", error);
           setLoading(false);
         });
     },
@@ -28,8 +28,8 @@ const BrowsePublicHabits = () => {
   );
 
   useEffect(() => {
-    fetchPublicHabits("/habits");
-  }, [fetchPublicHabits]);
+    fetchPublicChallenges("/challenges");
+  }, [fetchPublicChallenges]);
 
 
   const handleFilterSubmit = (e) => {
@@ -45,13 +45,13 @@ const BrowsePublicHabits = () => {
     }
 
    
-    fetchPublicHabits(`/habits?${params.toString()}`);
+    fetchPublicChallenges(`/challenges?${params.toString()}`);
   };
 
   return (
     <div className="max-w-6xl mx-auto p-4 my-10">
       <h1 className="text-4xl font-bold text-center mb-10">
-        Browse Public Habits
+        Browse Public Challenges
       </h1>
 
    
@@ -62,7 +62,7 @@ const BrowsePublicHabits = () => {
         <div className="form-control grow">
           <input
             type="text"
-            placeholder="Search by habit title..."
+            placeholder="Search by challenge title..."
             className="input input-bordered w-full"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -75,11 +75,11 @@ const BrowsePublicHabits = () => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">All Categories</option>
-            <option value="Morning">Morning</option>
-            <option value="Work">Work</option>
-            <option value="Fitness">Fitness</option>
-            <option value="Evening">Evening</option>
-            <option value="Study">Study</option>
+            <option value="Waste Reduction">Waste Reduction</option>
+            <option value="Energy Conservation">Energy Conservation</option>
+            <option value="Water Conservation">Water Conservation</option>
+            <option value="Sustainable Transport">Sustainable Transport</option>
+            <option value="Green Living">Green Living</option>
           </select>
         </div>
         <button type="submit" className="btn btn-primary">
@@ -91,39 +91,39 @@ const BrowsePublicHabits = () => {
         <div className="text-center">
           <span className="loading loading-spinner loading-lg"></span>
         </div>
-      ) : habits.length === 0 ? (
+      ) : challenges.length === 0 ? (
         <p className="text-center text-lg">
-          No habits found matching your criteria.
+          No challenges found matching your criteria.
         </p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {habits.map((habit) => (
-            <div key={habit._id} className="card bg-base-100 shadow-xl">
-              {habit.image && (
+          {challenges.map((challenge) => (
+            <div key={challenge._id} className="card bg-base-100 shadow-xl">
+              {challenge.image && (
                 <figure className="h-48">
                   <img
-                    src={habit.image}
-                    alt={habit.title}
+                    src={challenge.image}
+                    alt={challenge.title}
                     className="w-full h-full object-cover"
                   />
                 </figure>
               )}
               <div className="card-body">
-                <h3 className="card-title">{habit.title}</h3>
+                <h3 className="card-title">{challenge.title}</h3>
                 <p>
-                  {habit.description
-                    ? habit.description.substring(0, 100) + "..."
+                  {challenge.description
+                    ? challenge.description.substring(0, 100) + "..."
                     : "No description."}
                 </p>
                 <div className="mt-4">
-                  <div className="badge badge-outline">{habit.category}</div>
+                  <div className="badge badge-outline">{challenge.category}</div>
                   <p className="text-sm mt-2">
-                    By: {habit.userName || "Anonymous"}
+                    By: {challenge.userName || "Anonymous"}
                   </p>
                 </div>
                 <div className="card-actions justify-end mt-4">
                   <Link
-                    to={`/habit/${habit._id}`}
+                    to={`/challenge/${challenge._id}`}
                     className="btn btn-primary btn-sm"
                   >
                     View Details
@@ -138,4 +138,4 @@ const BrowsePublicHabits = () => {
   );
 };
 
-export default BrowsePublicHabits;
+export default BrowseChallange;

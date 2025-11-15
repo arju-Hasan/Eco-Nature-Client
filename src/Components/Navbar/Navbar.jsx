@@ -29,13 +29,13 @@ const Navbar = () => {
         <NavLink to="/" onClick={closeDropdown}>Home</NavLink>
       </li>
       <li>
-        <NavLink to="/browse-public" onClick={closeDropdown}>Browse Public Habits</NavLink>
+        <NavLink to="/all-challenges" onClick={closeDropdown}>Browse All challenges</NavLink>
       </li>
       <li>
-        <NavLink to="/add-habit" onClick={closeDropdown}>Add Habit</NavLink>
+        <NavLink to="/add-challenges" onClick={closeDropdown}>Add Challenges</NavLink>
       </li>
       <li>
-        <NavLink to="/my-habits" onClick={closeDropdown}>My Habits</NavLink>
+        <NavLink to="/my-challenges" onClick={closeDropdown}>My Challenges</NavLink>
       </li>
       <li>
         <NavLink to="/dashboard" onClick={closeDropdown}>Dashboard</NavLink>

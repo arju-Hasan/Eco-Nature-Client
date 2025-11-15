@@ -3,10 +3,10 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import AddHabit from "../pages/AddHabit/AddHabit";
+import AddHabit from "../pages/AddChallange/AddChallange";
 import PrivateRoute from "./PrivateRoute";
 import MyHabits from "../pages/MyHabits/MyHabits";
-import BrowsePublicHabits from "../pages/BrowsePublicHabits/BrowsePublicHabits";
+import BrowseChallange from "../pages/BrowseChallange/BrowseChallange";
 import HabitDetails from "../pages/HabitDetails/HabitDetails";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Dashboard from "../pages/Dashboard/Dashboard";
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/add-habit",
+        path: "/add-challenges",
         element: (
           <PrivateRoute>
             <AddHabit />
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-habits",
+        path: "/my-challenges",
         element: (
           <PrivateRoute>
             <MyHabits />
@@ -46,11 +46,11 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/browse-public",
-        element: <BrowsePublicHabits />,
+        path: "/all-challenges",
+        element: <BrowseChallange />,
       },
       {
-        path: "/habit/:id",
+        path: "/challenge/:id",
         element: (
           <PrivateRoute>
             <HabitDetails />
