@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import useEcoTips from '../../Hooks/useEcoTips';
 import EcoTipCard from './EcoTipCard';
-import EcoTipCardSkeleton from '../Components/EcoTipCardSkeleton';
+import EcoTipCardSkeleton from './EcoTipCardSkeleton';
 import Container from '../../Layouts/Container';
 
 

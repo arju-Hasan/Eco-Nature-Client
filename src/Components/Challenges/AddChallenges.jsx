@@ -1,10 +1,10 @@
 // AddChallenges.jsx
 import React, { useContext, useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
-import Loading from "./Loading";
+// import Loading from "./Loading";
 
 
 const AddChallenges = () => {

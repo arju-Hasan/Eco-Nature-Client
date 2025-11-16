@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import Container from "../Layouts/Container";
+import Container from "../../Layouts/Container";
 
 const ActiveChallengesCardSkeleton = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import useChallenges from '../../Hooks/useChallenges';
-import ActiveChallengesCard from '../Challenges/ActiveChallengesCard';
+import ActiveChallengesCard from './ActiveChallengesCard';
 import { Link } from 'react-router';
 
 const ActiveChallenges = () => {

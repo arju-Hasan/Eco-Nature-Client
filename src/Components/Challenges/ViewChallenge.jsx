@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import useChallenges from "../Hooks/useChallenges";
-import useParticipants from "../Hooks/useParticipants";
-import Loading from "./Loading";
-import Container from "../Layouts/Container";
+import useChallenges from "../../Hooks/useChallenges";
+import useParticipants from "../../Hooks/useParticipants";
+import Loading from "../../Pages/Loading";
+import Container from "../../Layouts/Container";
 import { toast } from "react-toastify";
-import ParticipantCard from "../Components/ParticipantCard";
+import ParticipantCard from "../ParticipantCard";
 import Swal from "sweetalert2";
 
 

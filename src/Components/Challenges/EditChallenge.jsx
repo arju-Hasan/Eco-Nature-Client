@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import { useParams, useNavigate } from "react-router";
 import Swal from "sweetalert2";
-import Loading from "./Loading";
+import Loading from "../../Pages/Loading";
 
 const EditChallenge = () => {
   const { user } = useContext(AuthContext);

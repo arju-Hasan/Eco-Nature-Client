@@ -2,7 +2,7 @@ import React from "react";
 import { FaCalendarCheck } from "react-icons/fa";
 import useEvents from "../../Hooks/useEvents";
 import EventsCard from "./EventsCard";
-import EcoTipCardSkeleton from "../EcoTipCardSkeleton";
+import EcoTipCardSkeleton from "../Eco-tip/EcoTipCardSkeleton";
 import Container from "../../Layouts/Container";
 
 

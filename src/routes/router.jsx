@@ -8,13 +8,13 @@ import Loading from "../Pages/Loading";
 import ForgotPassword from "../Pages/ForgotPassword";
 import Challenges from "../Components/Challenges/Challenges";
 import MyActivities from "../Pages/MyActivities";
-import AddChallenges from "../Pages/AddChallenges";
+import AddChallenges from "../Components/Challenges/AddChallenges";
 import PrivateRoute from "./PrivateRoute";
 import EcoTips from "../Components/Eco-tip/EcoTips";
 import Events from "../Components/Event/Events";
 import EventDetails from "../Components/Event/EventDetails";
-import ViewChallenge from "../Pages/ViewChallenge";
-import EditChallenge from "../Pages/EditChallenge";
+import ViewChallenge from "../Components/Challenges/ViewChallenge";
+import EditChallenge from "../Components/Challenges/EditChallenge";
 
 
 const router = createBrowserRouter([

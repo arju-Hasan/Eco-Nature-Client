@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ActiveChallengesCard from "./ActiveChallengesCard";
 import Loading from "../../Pages/Loading";
 import useAllChallenges from "../../Hooks/useAllChallenges";
-import ActiveChallengesCardSkeleton from "../../Components/ActiveChallengesCardSkeleton";
+import ActiveChallengesCardSkeleton from "./ActiveChallengesCardSkeleton";
 import Container from "../../Layouts/Container";
 
 const Challenges = () => {
