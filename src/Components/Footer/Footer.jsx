@@ -1,54 +1,158 @@
+import React from "react";
+import { Link } from "react-router";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+
 const Footer = () => {
-  return (
-    <footer className="footer flex flex-col lg:flex-row lg:justify-between p-10 bg-base-300 text-base-content mt-10">
-      <aside>
-        <p className="text-2xl font-bold text-primary">HabitTracker</p>
-        <p>
-          Building better habits, one day at a time.
-          <br />© 2025 Habit Tracker Inc. All rights reserved.
-        </p>
-      </aside>
-      <nav>
-        <header className="footer-title">Company</header>
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-      </nav>
-      <nav>
-        <header className="footer-title">Legal</header>
-        <a className="link link-hover">Terms & Conditions</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
-      </nav>
-      <nav>
-        <header className="footer-title">Social Media</header>
-        <div className="grid grid-flow-col gap-4">
-          <a>
-            <svg
-              xmlns="http://www.w.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-current"
-            >
-              <path d="M18.901 1.153H22.19l-4.22 4.83L22.98 22.84h-6.6l-4.99-6.7-4.14 6.7H1.02l4.63-5.3L1.18 1.15h6.7l4.37 5.8 3.94-5.8zM17.48 20.94h2.3l-9.8-13.4H7.8l9.68 13.4z"></path>
-            </svg>
-          </a>
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-current"
-            >
-              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v2.385z"></path>
-            </svg>
-          </a>
-        </div>
-      </nav>
-    </footer>
-  );
+
+
+
+    return (
+        <footer className=" bg-[#1c2c44] text-white py-10">
+            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+                {/* Brand Section */}
+                <div>
+                    <div className="flex items-center mb-3">
+                        <Link to={"/"} className=" flex  items-center text-[#82B532] text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/tpnX8gT8/site-logo2.png"} alt="Site Logo" /></figure><span className='text-[#297B33]'>Eco</span>Track</Link>
+                    </div>
+                    <p className="text-sm leading-relaxed text-gray-100">
+                        Empowering eco-conscious individuals to live sustainably, take on
+                        green challenges, and make measurable community impact.
+                    </p>
+                </div>
+
+                {/* Quick Links */}
+                <div>
+                    <h3 className="text-lg font-semibold text-[#82B532] mb-3">
+                        Quick Links
+                    </h3>
+                    <ul className="space-y-2">
+                        <li>
+                            <Link to="/" className="hover:text-[#82B532]">
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/challenges" className="hover:text-[#82B532]">
+                                Challenges
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to="/contact" className="hover:text-[#82B532]">
+                                Contact
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/about" className="hover:text-[#82B532]">
+                                About Us
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Resources */}
+                <div>
+                    <h3 className="text-lg font-semibold text-[#82B532] mb-3">
+                        Resources
+                    </h3>
+                    <ul className="space-y-2">
+                        <li>
+                            <Link to="/eco-tips" className="hover:text-[#82B532]">
+                                Eco Tips
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/events" className="hover:text-[#82B532]">
+                                Events
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/impact-tracker" className="hover:text-[#82B532]">
+                                Impact Tracker
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/community" className="hover:text-[#82B532]">
+                                Community
+                            </Link>
+                        </li>
+
+                    </ul>
+                </div>
+
+                {/* Newsletter */}
+                <div>
+                    <h3 className="text-lg font-semibold text-[#82B532] mb-3">
+                        Follow Us
+                    </h3>
+                    {/* Social Media */}
+                    <div className="flex flex-col my-4">
+                        <div className="flex space-x-4 text-xl">
+                            <Link
+                                to={"https://www.facebook.com/EcoTrack"}
+                                target="_blank"
+                                className="hover:text-[#82B532] transition-colors"
+                                aria-label="Facebook"
+                            >
+                                <FaFacebookF />
+                            </Link>
+                            <Link
+                                to={"https://twitter.com/EcoTrack"}
+                                target="_blank"
+                                className="hover:text-[#82B532] transition-colors"
+                                aria-label="Twitter"
+                            >
+                                <FaXTwitter />
+                            </Link>
+                            <Link
+                                to={"https://www.instagram.com/EcoTrack"}
+                                target="_blank"
+                                className="hover:text-[#82B532] transition-colors"
+                                aria-label="Instagram"
+                            >
+                                <FaInstagram />
+                            </Link>
+                            <Link
+                                to={"https://www.linkedin.com/company/EcoTrack"}
+                                target="_blank"
+                                className="hover:text-[#82B532] transition-colors"
+                                aria-label="LinkedIn"
+                            >
+                                <FaLinkedinIn />
+                            </Link>
+                            <Link
+                                to={"https://www.youtube.com/@EcoTrack"}
+                                target="_blank"
+                                className="hover:text-[#82B532] transition-colors"
+                                aria-label="YouTube"
+                            >
+                                <FaYoutube />
+                            </Link>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <div className=" mt-10 border-t border-[#82B532]/30 pt-5 text-center text-sm text-gray-200">
+                <p>
+                    © {new Date().getFullYear()} <span className="text-[#82B532]">EcoTrack</span> —
+                    Building a sustainable future together.
+                </p>
+                <p>
+                    Developed by —
+                    <Link to={"https://www.ayansujon.com/"} className="text-[#82B532]">Ayan Sujon</Link>
+                </p>
+
+
+            </div>
+        </footer>
+    );
 };
 
 export default Footer;

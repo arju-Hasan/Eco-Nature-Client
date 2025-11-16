@@ -1,138 +1,102 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import toast from "react-hot-toast";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
-import userImg from "../../assets/userIcon.png";
-import logo from "../../assets/logo.png";
+import React from 'react';
+import { useContext } from 'react';
+import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
+import Container from '../../Layouts/Container';
+
+
 
 const Navbar = () => {
-  const { user, logOut, loading } = useAuth();
-   console.log(user, loading);
-  const handleLogOut = () => {
-    logOut()
-      .then(() => {
-        toast.success("Logged out successfully");
-      })
-      .catch((error) => toast.error(error.message));
-  };
-  const [open, setOpen] = useState(false);
-  const closeDropdown = () => {
-  setOpen(false);
-  document.activeElement?.blur(); 
-};
+    const { user, signOutUser, loading } = useContext(AuthContext);
 
+    const links = <>
+        <li><NavLink to={"/"} className={"font-semebold"}>Home</NavLink></li>
+        <li><NavLink to={"/challenges"} className={"font-semebold"}>Challenges</NavLink></li>
+        <li><NavLink to={"/eco-tips"} className={"font-semebold"}>Eco Tips</NavLink></li>
+        <li><NavLink to={"/events"} className={"font-semebold"}>Events</NavLink></li>
+        <li><NavLink to={"/my-activities"} className={"font-semebold"}>My Activities</NavLink></li>
+        <li><NavLink to={"/challenges-add"} className={"font-semebold"}>Add Challenges</NavLink></li>
 
-  const navLinks = (
-    <>
-      <li>
-        <NavLink to="/" onClick={closeDropdown}>Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/all-challenges" onClick={closeDropdown}>Browse All challenges</NavLink>
-      </li>
-      <li>
-        <NavLink to="/add-challenges" onClick={closeDropdown}>Add Challenges</NavLink>
-      </li>
-      <li>
-        <NavLink to="/my-challenges" onClick={closeDropdown}>My Challenges</NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard" onClick={closeDropdown}>Dashboard</NavLink>
-      </li>
     </>
-  );
+    return (
+        <div className='shadow-sm bg-white/30 backdrop-blur  sticky top-0 z-10'>
+            <Container>
+                <nav>
+                    <div className="navbar ">
+                        <div className="navbar-start">
+                            <div className="dropdown">
+                                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                                </div>
+                                <ul
+                                    tabIndex="-1"
+                                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                    {links}
+                                </ul>
+                            </div>
+                            <Link to={"/"} className=" flex  items-center text-[#82B532] text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/tpnX8gT8/site-logo2.png"} alt="Site Logo" /></figure><span className='text-[#297B33]'>Eco</span>Track</Link>
+                        </div>
+                        <div className="navbar-center hidden lg:flex">
+                            <ul className="menu menu-horizontal px-1">
+                                {links}
+                            </ul>
+                        </div>
+                        <div className="navbar-end">
 
-  return (
-    <div className="navbar bg-base-100 shadow-lg px-4">
-      <div className="navbar-start">
-        <div className={`dropdown ${open ? "dropdown-open" : ""}`}>
-          <label tabIndex={0}  onClick={() => setOpen(!open)} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 -m-2"
-              fill="none" 
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-    
-          <ul
-            tabIndex={0}
-            className="menu  menu-sm  dropdown-content mt-5 z-10 p-2 shadow bg-base-100 rounded-box w-52">
-            {navLinks}
-          </ul>
+
+                            {loading ? <span className="loading loading-ring loading-xl"></span> :
+                                user ? (
+
+                                    <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className=" m-1">
+                                            <img className='w-10 mx-auto rounded-full overflow-hidden border border-primary' src={user?.photoURL || "https://i.ibb.co.com/tp3xgXbG/avater.jpg"} alt="Avater" />
+
+                                        </div>
+                                        <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-3 text-center">
+                                            <Link to={"/profile"} className="tooltip" data-tip="Click to Profile">
+                                                <img className='w-25 mx-auto rounded-full overflow-hidden border border-primary' src={user?.photoURL || "https://i.ibb.co.com/tp3xgXbG/avater.jpg"} alt="Avater" />
+                                            </Link>
+                                            <NavLink to={`/challenges-add`} className={" text-center font-semebold hover:underline"}>Add Challenges</NavLink>
+                                            <NavLink to="/my-activities" className=" hover:underline">
+                                                My Activities
+                                            </NavLink>
+
+                                            <h2 className='text-xl font-semebold'>{user?.displayName}</h2>
+                                            <p className='text-black'>{user?.email}</p>
+                                            <button onClick={signOutUser} className={"btn bg-[#297B33] hover:bg-[#82B532]  text-white"}>Sign Out</button>
+                                        </ul>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        to="/login"
+                                        className="btn text-white bg-[#297B33] hover:bg-[#82B532] border-none"
+                                    >
+                                        Log in
+                                    </Link>
+
+                                )
+                            }
+                        </div>
+                        {/* 
+                        <div className=" hidden lg:flex">
+                            <ul className="menu menu-horizontal px-1">
+                                {links}
+                            </ul>
+                        </div>
+
+                    <div className="navbar-end">
+                        {
+                            user ?
+                                <Link onClick={signOutUser} className="btn">Sign Out</Link>
+                                :
+                                <Link to={"/login"} className="btn">Sign In</Link>
+                        }
+                    </div> */}
+                    </div>
+                </nav>
+            </Container>
         </div>
-       <Link to="/" className="btn btn-ghost text-xl text-[#14aa00] font-semibold">
-        <span className="w-30 h-18 -ml-3 flex justify-center items-center rounded-full">
-          <img src={logo} alt="Nature Logo" className="w-35 h-18 inline" />
-          <h2 className="-ml-5">Nature</h2>
-        </span>
-        
-      </Link>
-
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
-      </div>
-
-      <div className="navbar-end">
-        <ThemeToggle />
-
-        {loading ? (
-          <span className="loading loading-spinner loading-sm ml-4"></span>
-        ) : user ? (
-          <div className="dropdown dropdown-end ml-2">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 h-10 rounded-full">
-
-                <img
-                  tabIndex={0}
-                  role="button"
-                  className="w-10 h-10  object-cover rounded-full"
-                  src={user?.photoURL && user.photoURL.length > 5 ? user.photoURL : userImg}
-                  onError={(e) => (e.target.src = userImg)}
-                  alt="profile"
-                />
-              
-                
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li className="p-2">
-                <p className="font-semibold">{user.displayName}</p>
-                <p className="text-sm text-gray-500">{user.email}</p>
-              </li>
-              <li>
-                <button onClick={handleLogOut} className="btn btn-ghost btn-sm">
-                  Log out
-                </button>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <div className="ml-2">
-            <Link to="/login" className="btn btn-ghost">
-              Login
-            </Link>
-            <Link to="/register" className="btn btn-primary ml-2">
-              Sign Up
-            </Link>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Navbar;

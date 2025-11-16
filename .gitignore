@@ -23,3 +23,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+
+# delete kortea hobea 
+node_modules-b
+src-b
+package.json.text

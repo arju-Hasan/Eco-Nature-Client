@@ -1,26 +1,23 @@
-/* @import "tailwindcss";
-@plugin "daisyui" {
-  themes: lemonade --default, dim --prefersdark;
-} */
-
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: lemonade --default, dim --prefersdark;
-  --color-primary: #14aa00;
-  --color-secondary: #cb44dd;
-  --color-base-100: #f8f6f6 ;
-  --color-base-200: #c4c2c2;
-  --color-base-300: #9c9c9c;
-  --color-accent: #252525;
-  --color-base-400: #ffffff;
-}
-.h4{
+@plugin "daisyui";
 
- background-color: #14aa00;
- background-color: #cb44dd;
- background-color: #f8f6f6;
- background-color: #c4c2c2;
- background-color: #9c9c9c;
- background-color: #252525;
- background-color: #ffffff;
+/* Swiper slider resources */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
+
+
+/* Navbar Active color */
+ .menu li > .active {
+  @apply text-[#297B33];
+}
+/* Navbar items bg-transparent  */
+.navbar .menu li > a:hover,
+.navbar .menu li > a:focus {
+  @apply bg-transparent outline-none;
+}
+/* Private Route text color */
+.navbar div ul a:focus, .navbar div ul a:hover, .navbar .active{
+      @apply text-[#297B33];
 }
