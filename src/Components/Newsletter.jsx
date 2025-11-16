@@ -61,11 +61,11 @@ fetch('http://localhost:3000/api/subscribe', {
     return (
         <section className="py-20 bg-green-50" id="newsletter">
             <div className="max-w-6xl mx-auto px-6 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-[#297B33] mb-4">
-                    Subscribe to Our Newsletter
+                <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-4">
+                    Subscribe to EcuTrack inbox Newsletter
                 </h2>
                 <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
-                    Get the latest sustainability challenges, eco-tips, and community updates delivered straight to your inbox.
+                    Get the latest sustainability challenges, eco-tips, and community updates delivered straight to your mail inbox EcoTips Newsletter.
                 </p>
 
                 <form
@@ -78,7 +78,7 @@ fetch('http://localhost:3000/api/subscribe', {
                         placeholder="Full Name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full sm:flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#297B33]"
+                        className="w-full sm:flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-600"
                         required
                     />
                     <input
@@ -87,21 +87,17 @@ fetch('http://localhost:3000/api/subscribe', {
                         placeholder="Email Address"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full sm:flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#297B33]"
+                        className="w-full sm:flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-green-600"
                         required
                     />
                     <button
                         type="submit"
-                        className="flex items-center justify-center gap-2 bg-[#297B33] hover:bg-[#82B532] text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-300"
+                        className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-300"
                     >
                         <Send size={18} />
                         Subscribe
                     </button>
                 </form>
-
-                <p className="text-xs text-gray-500 mt-4">
-                    🌱 We respect your privacy. Unsubscribe anytime.
-                </p>
 
             </div>
         </section>

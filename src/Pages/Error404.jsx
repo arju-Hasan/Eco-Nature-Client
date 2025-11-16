@@ -1,17 +1,17 @@
 
 import React from "react";
 import { useNavigate } from "react-router";
-import { AlertCircle, XOctagon } from "lucide-react";
+import { ArrowLeftToLine, Ban, } from "lucide-react";
 
 const Error404 = () => {
   const navigate = useNavigate();
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50 text-center px-4">
-      <XOctagon
-        className="w-24 h-24 text-[#297B33] animate-bounce mb-6"
+      <Ban
+        className="w-40 h-40 text-red-400 mb-6"
       />
-      <h1 className="text-8xl font-extrabold text-[#297B33] mb-4 animate-pulse">
+      <h1 className="text-8xl font-extrabold text-red-400 mb-4 animate-pulse">
         404
       </h1>
       <h2 className="text-2xl md:text-3xl font-semibold mb-2">
@@ -22,9 +22,9 @@ const Error404 = () => {
       </p>
       <button
         onClick={() => navigate("/")}
-        className="btn bg-[#297B33] hover:bg-[#82B532] text-white px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+        className="btn bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-tl-3xl rounded-br-3xl transition-all flex items-center justify-center gap-2"
       >
-        <AlertCircle className="w-5 h-5" /> Go Home
+        <ArrowLeftToLine className="w-5 h-5" /> Go Home
       </button>
     </div>
   );

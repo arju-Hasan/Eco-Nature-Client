@@ -1,21 +1,21 @@
 // HowItWorks.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import { Target, BarChart2, MessageSquareHeart } from "lucide-react";
+import { SquarePlus, Move3d, HandHeart } from "lucide-react";
 
 const steps = [
   {
-    icon: <Target className="text-[#297B33] w-8 h-8" />,
+    icon: <SquarePlus className="text-green-600 w-8 h-8" />,
     title: "Join a Challenge",
     desc: "Pick a sustainability challenge that inspires you — from waste reduction to energy saving. Take your first step toward greener living.",
   },
   {
-    icon: <BarChart2 className="text-[#297B33] w-8 h-8" />,
+    icon: <Move3d className="text-green-600 w-8 h-8" />,
     title: "Track Your Progress",
     desc: "Monitor your eco-actions, measure your impact, and see your personal contribution grow within the EcoTrack community.",
   },
   {
-    icon: <MessageSquareHeart className="text-[#297B33] w-8 h-8" />,
+    icon: <HandHeart className="text-green-600 w-8 h-8" />,
     title: "Share Eco Tips",
     desc: "Inspire others by sharing practical tips and success stories — together we build a conscious, sustainable community.",
   },
@@ -26,7 +26,7 @@ const HowItWorks = () => {
     <section className="py-20 bg-white" id="how-it-works">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.h2
-          className="text-4xl md:text-4xl font-bold text-[#297B33] mb-6"
+          className="text-4xl md:text-4xl font-bold text-green-600 mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -50,7 +50,7 @@ const HowItWorks = () => {
               transition={{ delay: index * 0.2 }}
             >
               <div className="flex justify-center mb-4">{step.icon}</div>
-              <h3 className="font-semibold text-[#297B33] text-lg mb-2">{step.title}</h3>
+              <h3 className="font-semibold text-green-600 text-lg mb-2">{step.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}
