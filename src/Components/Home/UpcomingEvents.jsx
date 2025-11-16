@@ -3,6 +3,7 @@ import { FaCalendarCheck } from "react-icons/fa";
 import EventsCard from "../Event/EventsCard";
 import { Link } from "react-router";
 import useEvents from "../../Hooks/useEvents";
+import { ArrowBigRight } from "lucide-react";
 
 const UpcomingEvents = () => {
 
@@ -16,7 +17,7 @@ const {events}= useEvents();
       <div className="container mx-auto px-5">
         {/* Heading */}
         <div className="text-center mb-10">
-          <div className="flex justify-center text-[#297B33] items-center gap-2 mb-2">
+          <div className="flex justify-center text-green-600 items-center gap-2 mb-2">
             <FaCalendarCheck size={40} />
             <h2 className="text-3xl md:text-4xl font-bold">Upcoming Events</h2>
           </div>
@@ -31,11 +32,14 @@ const {events}= useEvents();
           ))}
         </div>
         {/* View All Button */}
-        <div className="text-center mt-10">
-          <Link to={"/events"} className="btn bg-[#297B33] hover:bg-[#82B532] text-white transition-all">
-            View All Events
+         <div className="mt-10 mx-5 w-full flex justify-center">
+           <Link to="/events" className="w-full flex justify-center">
+          <span className="flex items-center gap-3 bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-white hover:text-green-600 hover:border-green-600 border transition-colors duration-300">
+          View All Events <ArrowBigRight />
+          </span>
           </Link>
-        </div>
+         </div>
+        
 
       </div>
     </section>
