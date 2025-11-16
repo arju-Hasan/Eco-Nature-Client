@@ -33,7 +33,7 @@ const Navbar = () => {
                                     {links}
                                 </ul>
                             </div>
-                            <Link to={"/"} className=" flex  items-center text-[#82B532] text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure>Track</Link>
+                            <Link to={"/"} className=" flex  items-center text-green-600 text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure>Track</Link>
                         </div>
                         <div className="navbar-center hidden lg:flex">
                             <ul className="menu font-semibold menu-horizontal px-1">

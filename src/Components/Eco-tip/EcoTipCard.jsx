@@ -4,6 +4,8 @@ import { FaArrowUp } from "react-icons/fa";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
+import Container from "../../Layouts/Container";
+import { CircleCheckBig } from "lucide-react";
 
 const EcoTipCard = ({ tip }) => {
   const { _id, title, content, category, author, authorName, upvotes, createdAt } = tip;
@@ -35,7 +37,6 @@ const EcoTipCard = ({ tip }) => {
       setIsVoting(true);
       setVoteCount(prev => prev + 1);
 
-      // await axios.patch(`http://localhost:3000/api/ecotips/${_id}/upvote`);
  await axios.patch(
   `http://localhost:3000/api/eco-tips/${_id}/upvote`,
   { email: user?.email }
@@ -64,9 +65,10 @@ const EcoTipCard = ({ tip }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+    <div className=" bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg p-4">
+      
       {/* Card Header */}
-      <div className="bg-[#297B33] px-4 py-2">
+      <div className="bg-green-600 px-4 py-2 rounded-tl-full rounded-br-full mb-4">
         <h2 className="text-white font-semibold text-lg">{title}</h2>
       </div>
 
@@ -91,18 +93,19 @@ const EcoTipCard = ({ tip }) => {
       </div>
 
       {/* Footer Button */}
-      <div className="flex justify-center">
+      <div className="flex justify-center border-dotted border-t-4 border-green-500 pt-5 ">
         <button
           onClick={handleUpvote}
           disabled={isVoting}
-          className={`rounded-t-4xl flex flex-col justify-center items-center w-1/3 px-4 py-2 bg-[#297B33] text-white text-center font-medium cursor-pointer hover:bg-[#82B532] transition-colors duration-300 ${
+          className={`rounded-tr-4xl rounded-bl-4xl flex flex-col justify-center items-center w-1/3 px-4 py-2 bg-green-600 text-white text-center font-medium cursor-pointer hover:bg-green-200 hover:text-green-600 hover:border-green-600 border transition-colors duration-300 ${
             isVoting ? "opacity-70 cursor-not-allowed" : ""
           }`}
         >
-          <FaArrowUp />
+          <CircleCheckBig />
           <span>{isVoting ? "Voting..." : "Upvote Tip"}</span>
         </button>
       </div>
+      
     </div>
   );
 };

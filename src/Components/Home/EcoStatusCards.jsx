@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaLeaf, FaUsers, FaCloud } from "react-icons/fa";
 import Container from "../../Layouts/Container";
 import useChallenges from "../../Hooks/useChallenges";
+import active from "../../assets/Active-Challenges.webp"
+import { Activity, Cloud, Users } from "lucide-react";
 
 const EcoStatusCards = () => {
   const { challenges, loading, error } = useChallenges();
@@ -42,13 +44,13 @@ const EcoStatusCards = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error.message}</p>;
 
   return (
-    <div className="py-20">
+    <div className="pt-20 pb-5 bg-base-200">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
           <div className="p-6 bg-white rounded-2xl shadow text-center border border-gray-100">
-            <div className="flex justify-center text-green-500 text-3xl mb-2">
-              <FaLeaf />
+            <div className="flex justify-center text-green-500 font-extrabold text-3xl mb-2">
+              <Activity />
             </div>
             <h2 className="text-4xl font-bold">{stats.activeChallenges}</h2>
             <p className="text-gray-500 mt-1">Active Challenges</p>
@@ -56,8 +58,8 @@ const EcoStatusCards = () => {
 
           {/* Card 2 */}
           <div className="p-6 bg-white rounded-2xl shadow text-center border border-gray-100">
-            <div className="flex justify-center text-green-500 text-3xl mb-2">
-              <FaUsers />
+            <div className="flex justify-center text-green-500 font-extrabold text-7xl mb-2">
+              <Users />
             </div>
             <h2 className="text-3xl font-bold">{stats.totalParticipants}</h2>
             <p className="text-gray-500 mt-1">Total Participants</p>
@@ -66,7 +68,7 @@ const EcoStatusCards = () => {
           {/* Card 3 */}
           <div className="p-6 bg-white rounded-2xl shadow text-center border border-gray-100">
             <div className="flex justify-center text-green-500 text-3xl mb-2">
-              <FaCloud />
+              <Cloud />
             </div>
             <h2 className="text-3xl font-bold">{stats.co2Saved} kg</h2>
             <p className="text-gray-500 mt-1">CO₂ Saved</p>
