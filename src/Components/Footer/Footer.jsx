@@ -14,7 +14,7 @@ const Footer = () => {
                 {/* Brand Section */}
                 <div>
                     <div className="flex items-center mb-3">
-                        <Link to={"/"} className=" flex  items-center text-[#82B532] text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/tpnX8gT8/site-logo2.png"} alt="Site Logo" /></figure><span className='text-[#297B33]'>Eco</span>Track</Link>
+                        <Link to={"/"} className=" flex  items-center text-[#82B532] text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure><span className='text-[#297B33]'>Eco</span>Track</Link>
                     </div>
                     <p className="text-sm leading-relaxed text-gray-100">
                         Empowering eco-conscious individuals to live sustainably, take on
