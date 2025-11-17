@@ -31,18 +31,7 @@ const {loading} = useEvents();
 
 
   if (loading) {
-    return (<Loader />
-      // <div className="card w-full bg-white border border-gray-200 shadow-md rounded-2xl p-6 animate-pulse">
-      //   <div className="h-6 w-3/4 bg-gray-300 rounded skeleton mb-4"></div>
-      //   <div className="space-y-2 mb-4">
-      //     <div className="h-4 w-full bg-gray-300 rounded skeleton"></div>
-      //     <div className="h-4 w-5/6 bg-gray-300 rounded skeleton"></div>
-      //     <div className="h-4 w-2/3 bg-gray-300 rounded skeleton"></div>
-      //     <div className="h-4 w-4/5 bg-gray-300 rounded skeleton"></div>
-      //   </div>
-      //   <div className="h-8 w-1/3 bg-gray-300 rounded-full skeleton"></div>
-      // </div>
-    );
+    return (<Loader />);
   }
 
   return (

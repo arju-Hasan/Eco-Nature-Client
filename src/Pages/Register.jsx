@@ -220,16 +220,16 @@ const Register = () => {
         <div className=''>
             <Container>
                 <div>
-                    <div className="card mx-auto my-10 bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <div className="card mx-auto my-10 bg-base-300 w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
-                            <Link to={"/"} className=" mx-auto text-[#82B532] text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure></Link>
-                            <h1 className="text-3xl font-bold text-center ">Join EcoTrack</h1>
+                            <Link to={"/"} className=" mx-auto text-green-600 text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure></Link>
+                            <h1 className="text-3xl font-bold text-green-600 text-center ">Join EcoTrack</h1>
                             <form onSubmit={handleSubmit}>
 
                                 <fieldset className="fieldset">
                                     {/* Name*/}
                                     <label className="label">Your Name</label>
-                                    <input onChange={handleChange} value={formData.name} type="text" name='name' required className={`input input-bordered w-full ${errors.name ? "border-red-500" : ""}`} placeholder="Ayan Sujon" />
+                                    <input onChange={handleChange} value={formData.name} type="text" name='name' required className={`input input-bordered w-full ${errors.name ? "border-red-500" : ""}`} placeholder="Arju Hasan" />
                                     {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
 
                                     {/* PhotoURL */}
@@ -240,7 +240,7 @@ const Register = () => {
                                     )}
                                     {/* Email */}
                                     <label className="label">Your Email</label>
-                                    <input onChange={handleChange} value={formData.email} type="email" name='email' required className={`input input-bordered w-full ${errors.email ? "border-red-500" : ""}`} placeholder="yourname@example.com" />
+                                    <input onChange={handleChange} value={formData.email} type="email" name='email' required className={`input input-bordered w-full ${errors.email ? "border-red-500" : ""}`} placeholder="arju3h@gmail.com" />
                                     {errors.email && (
                                         <p className="text-red-500 text-sm mt-1">{errors.email}</p>
                                     )}
@@ -259,7 +259,7 @@ const Register = () => {
 
                                     <button
                                         type="submit"
-                                        className="btn text-white bg-[#297B33] hover:bg-[#82B532] mt-4 w-full"
+                                        className="btn text-white bg-green-600 hover:bg-green-700 mt-4 w-full"
                                         disabled={loading}
                                     >
                                         {loading ? (
@@ -278,7 +278,7 @@ const Register = () => {
                                 <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
                                 Continue with Google
                             </button>
-                            <p className='text-center'>Already have an accout? <Link to={"/login"} className={"font-semebold text-[#297B33] hover:underline"}>Log in</Link></p>
+                            <p className='text-center'>Already have an accout? <Link to={"/login"} className={"font-semibold text-green-600 hover:underline"}>Log in</Link></p>
                         </div>
                     </div>
                 </div>

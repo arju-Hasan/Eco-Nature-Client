@@ -2,7 +2,7 @@
 
 This project is a full-stack MERN application built for an academic assignment. It allows users to create, track, manage, and analyze their daily habits to build streaks and boost productivity.
 
-**Live Site URL:** []
+**Live Site URL:** [https://eco-nature-client.web.app]
 
 **Server Site URL:** [https://y-xi-drab.vercel.app]
 

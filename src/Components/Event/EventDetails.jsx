@@ -56,8 +56,8 @@ const EventDetails = () => {
       await axios.post("/api/joined-events", {
         participantName: formData.name,
         participantEmail: formData.email,
-        participantLocation: formData.userLocation, // Backend field name
-        challengeId: id, // Event / Challenge ID
+        participantLocation: formData.userLocation, 
+        challengeId: id,
       });
 
       // Update participant count in frontend

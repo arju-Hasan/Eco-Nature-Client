@@ -63,12 +63,6 @@ const Login = () => {
         validateField(name, value);
     };
 
-
-
-
-
-
-
     const handleLogin = (e) => {
         e.preventDefault();
 
@@ -155,14 +149,16 @@ const Login = () => {
                 <div>
                     <div className="card mx-auto my-10 bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
-                            <Link to={"/"} className=" mx-auto text-[#82B532] text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure></Link>
-                            <h1 className="text-3xl font-bold text-center ">Login to EcoTrack</h1>
+                            <div className='flex flex-col items-center mb-4'>
+                                <Link to={"/"} className=" mx-auto text-green-600 text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure></Link>
+                            <h1 className="text-3xl font-bold text-green-600 text-center ">Login to EcoTrack</h1>
+                            </div>
                             <form onSubmit={handleLogin}>
 
                                 <fieldset className="fieldset">
                                     {/* Email */}
                                     <label className="label">Your Email</label>
-                                    <input onChange={handleChange} value={formData.email} type="email" name='email' required className={`input input-bordered w-full ${errors.email ? "border-red-500" : ""}`} placeholder="yourname@example.com" />
+                                    <input onChange={handleChange} value={formData.email} type="email" name='email' required className={`input input-bordered w-full ${errors.email ? "border-red-500" : ""}`} placeholder="arju3h@gmail.com" />
                                     {errors.email && (
                                         <p className="text-red-500 text-sm mt-1">{errors.email}</p>
                                     )}
@@ -179,11 +175,11 @@ const Login = () => {
                                     )}
 
 
-                                    <div><Link to={"/forgot-password"} className="link link-hover hover:text-[#297B33]">Forgot password?</Link></div>
+                                    <div><Link to={"/forgot-password"} className="link link-hover hover:text-green-600">Forgot password?</Link></div>
 
                                     <button
                                         type="submit"
-                                        className="btn text-white bg-[#297B33] hover:bg-[#82B532] mt-4 w-full"
+                                        className="btn text-white bg-green-600 hover:bg-green-700 mt-4 w-full"
                                         disabled={loading}
                                     >
                                         {loading ? (

@@ -71,7 +71,7 @@ const router = createBrowserRouter([
         {
             path: '/my-activities',
             element: <PrivateRoute><MyActivities/></PrivateRoute>,
-            // element: <MyActivities/>,
+           
         },
         {
             path: '/my-activities/:id',

@@ -33,7 +33,7 @@ const Navbar = () => {
                                     {links}
                                 </ul>
                             </div>
-                            <Link to={"/"} className=" flex  items-center text-green-600 text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure>Track</Link>
+                            <Link to={"/"} className=" flex   items-center text-green-600 text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure>Track</Link>
                         </div>
                         <div className="navbar-center hidden lg:flex">
                             <ul className="menu font-semibold menu-horizontal px-1">
@@ -58,13 +58,13 @@ const Navbar = () => {
 
                                             <h2 className='text-xl font-semebold'>{user?.displayName}</h2>
                                             <p className='text-black'>{user?.email}</p>
-                                            <button onClick={signOutUser} className={"btn bg-[#297B33] hover:bg-[#82B532]  text-white"}>Sign Out</button>
+                                            <button onClick={signOutUser} className={"btn bg-green-600 hover:bg-green-700 text-white"}>Sign Out</button>
                                         </ul>
                                     </div>
                                 ) : (
                                     <Link
                                         to="/login"
-                                        className="btn text-white bg-[#297B33] hover:bg-[#82B532] border-none"
+                                        className="btn text-white bg-green-600 hover:bg-green-700 border-none"
                                     >
                                         Log in
                                     </Link>

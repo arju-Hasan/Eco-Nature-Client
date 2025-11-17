@@ -18,12 +18,12 @@ const Challenges = () => {
 
   // Predefined categories for dropdown
   const categories = [
-    "Waste Reduction",
-    "Energy Saving",
+  
+    "Energy Conservation",
     "Water Conservation",
-    "Community Clean-Up",
-    "Sustainable Diet",
-    "Plastic-Free July"
+    "Sustainable Transport",
+    "Waste Reduction",
+    "Green Living",
   ];
 
   // Apply filters button
@@ -65,7 +65,7 @@ const Challenges = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl text-center py-5 font-bold mb-6 text-[#297B33]">All Challenges</h2>
+      <h2 className="text-3xl text-center py-5 font-bold mb-6 text-green-600">All Challenges</h2>
 
       {/* Filters UI */}
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4 px-6 md:px-12">
@@ -111,7 +111,7 @@ const Challenges = () => {
         {/* Apply Filter Button */}
         <button
           onClick={handleApplyFilters}
-          className="btn bg-[#297B33] text-white hover:bg-[#82B532] w-full"
+          className="btn bg-green-600 text-white hover:bg-green-700 w-full"
         >
           Apply Filter
         </button>
@@ -125,7 +125,7 @@ const Challenges = () => {
       )}
 
       {!loading && !error && sortedChallenges.length > 0 && (
-        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 md:px-12">
           {sortedChallenges.map((challenge) => (
             <ActiveChallengesCard key={challenge._id} challenge={challenge} />
           ))}
