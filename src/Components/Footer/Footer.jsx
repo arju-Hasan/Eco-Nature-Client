@@ -9,14 +9,14 @@ const Footer = () => {
 
 
     return (
-        <footer className=" bg-[#1c2c44] text-white py-10">
+        <footer className=" bg-black/30 text-black py-10">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
                 {/* Brand Section */}
                 <div>
                     <div className="flex items-center mb-3">
                         <Link to={"/"} className=" flex  items-center text-green-600 text-xl font-semibold"><figure className='w-12 pr-1'><img src={"https://i.ibb.co.com/xPxTstf/logo.png"} alt="Site Logo" /></figure>Track</Link>
                     </div>
-                    <p className="text-sm leading-relaxed text-gray-100">
+                    <p className="text-sm leading-relaxed text-black">
                         Eco Tracker helps you monitor your environmental impact through smart insights, daily habits, and sustainable challenges. It empowers you to reduce waste, a more eco-friendly lifestyle
                     </p>
                 </div>
@@ -135,13 +135,13 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className=" mt-10 border-t-5 border-dotted border-green-600/30 pt-5 text-center text-sm text-gray-200">
+            <div className=" mt-10 border-t-3 border-dotted border-green-600 pt-5 text-center text-sm text-black">
                 <p>
-                    Copyright  © {new Date().getFullYear()} <span className="text-green-600">EcoTrack</span> -All right reserved.
+                    Copyright  © {new Date().getFullYear()}EcoTrack All right reserved.
                 </p>
                 <p>
                     Developed by —
-                    <Link to={"https://github.com/arju-Hasan"} className="text-green-600">Arju Hasan</Link>
+                    <Link to={"https://github.com/arju-Hasan"} className="text-[#0a05ff]">Arju Hasan</Link>
                 </p>
 
 

@@ -28,7 +28,7 @@ const {events, loading, error}= useEvents();
       <div className="container mx-auto px-5">
         {/* Heading */}
         <div className="text-center mb-10">
-          <div className="flex justify-center text-[#297B33] items-center gap-2 mb-2">
+          <div className="flex justify-center text-green-600 items-center gap-2 mb-2">
             <FaCalendarCheck size={24} />
             <h2 className="text-3xl font-bold">All Events</h2>
           </div>

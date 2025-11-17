@@ -113,7 +113,7 @@ const AddChallenges = () => {
 return (
   <div className="py-20">
     <div className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl text-center font-bold mb-6 text-[#297B33]">Add New Challenge</h2>
+      <h2 className="text-2xl text-center font-bold mb-6 text-green-600">Add New Challenge</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -265,7 +265,7 @@ return (
         {/* Submit Button */}
         <button
           type="submit"
-          className="btn w-full bg-[#297B33] hover:bg-[#82B532] text-white flex items-center justify-center"
+          className="btn w-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center"
         >
           <FaPlus className="mr-2" /> Add Challenge
         </button>

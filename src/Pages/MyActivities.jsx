@@ -34,8 +34,6 @@ useEffect(() => {
     fetchChallenges();
   }
 }, [user?.email, fetchChallenges]);
-// console.log("API user email:", c.createdBy);
-// console.log("Logged user email:", user);
 
 const handleDelete = (id) => {
   Swal.fire({
@@ -47,7 +45,7 @@ const handleDelete = (id) => {
     cancelButtonText: "Cancel",
     buttonsStyling: false,
     customClass: {
-      confirmButton: "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors mr-5",
+      confirmButton: "bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-xl transition-colors mr-5",
       cancelButton: "bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-xl transition-colors",
       popup: "swal2-popup-custom", // Custom class for popup
     },
@@ -67,7 +65,7 @@ const handleDelete = (id) => {
             confirmButtonText: "OK",
             buttonsStyling: false,
             customClass: {
-              confirmButton: "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
+              confirmButton: "bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-xl transition-colors",
             },
           });
           fetchChallenges(); // Refresh list
@@ -98,7 +96,7 @@ console.log("Logged User:", user.email);
   return (
     <div className="py-20">
       <div className="max-w-4xl mx-auto space-y-4">
-        <h2 className="text-2xl font-bold mb-6 text-[#297B33] text-center">My Activities</h2>
+        <h2 className="text-2xl font-bold mb-6 text-green-600 text-center">My Activities</h2>
 
         {challenges.length === 0 ? (
           <p className="text-center text-gray-500">No challenges found.</p>
@@ -123,7 +121,7 @@ console.log("Logged User:", user.email);
                 <div className="flex flex-col gap-2">
                   <Link
                     to={`/my-activities/${challenge._id}`}
-                    className="btn bg-[#297B33] hover:bg-[#82B532] text-white"
+                    className="btn bg-green-600 hover:bg-green-700 text-white"
                   >
                     Edit
                   </Link>

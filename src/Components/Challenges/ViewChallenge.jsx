@@ -88,7 +88,7 @@ const ViewChallenge = () => {
     // Submit participant data
     try {
       const participantRes = await fetch(
-        "/api/participants",
+        "https://y-xi-drab.vercel.app/api/participants",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -98,6 +98,10 @@ const ViewChallenge = () => {
           }),
         }
       );
+
+      console.log({ ...formData, challengeId: localChallenge._id });
+
+
 
       if (participantRes.status === 400) {
         const data = await participantRes.json();
@@ -135,16 +139,16 @@ const ViewChallenge = () => {
           buttonsStyling: false,
           customClass: {
             confirmButton:
-              "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
+              "bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-xl transition-colors",
           },
         });
       } else {
         toast.error("Failed to join. Please try again.");
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Something went wrong.");
-    }
+  console.error("Error submitting form:", error);
+  toast.error(error.message || "Something went wrong.");
+}
   };
 
   return (

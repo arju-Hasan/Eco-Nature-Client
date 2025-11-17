@@ -48,12 +48,12 @@ const Navbar = () => {
 
                                     <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className=" m-1">
-                                            <img className='w-10 mx-auto rounded-full overflow-hidden border border-primary' src={user?.photoURL || "https://i.ibb.co.com/tp3xgXbG/avater.jpg"} alt="Avater" />
+                                            <img className='w-10 mx-auto rounded-full overflow-hidden border border-primary' src={user?.photoURL || "https://i.ibb.co.com/350n9K6p/58289340.jpg"} alt="Avater" />
 
                                         </div>
                                         <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-3 text-center">
                                             <Link to={"/profile"} className="tooltip" data-tip="Click to Profile">
-                                                <img className='w-25 mx-auto rounded-full overflow-hidden border border-primary' src={user?.photoURL || "https://i.ibb.co.com/tp3xgXbG/avater.jpg"} alt="Avater" />
+                                                <img className='w-25 mx-auto rounded-full overflow-hidden border border-primary' src={user?.photoURL || "https://i.ibb.co.com/350n9K6p/58289340.jpg"} alt="Avater" />
                                             </Link>
 
                                             <h2 className='text-xl font-semebold'>{user?.displayName}</h2>

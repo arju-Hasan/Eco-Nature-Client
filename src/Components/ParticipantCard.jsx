@@ -10,7 +10,7 @@ const ParticipantCard = ({ participant }) => {
                     <img
                         src={participant.imageUrl}
                         alt={participant.participantName}
-                        className="w-full h-full object-cover  md:rounded-l-2xl"
+                        className="w-full h-full object-cover  md:rounded-xl"
                     />
                 </figure>
 
