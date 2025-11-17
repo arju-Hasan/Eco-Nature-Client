@@ -22,11 +22,13 @@ const EventDetails = () => {
   });
   const [joining, setJoining] = useState(false); // Button loading state
 
+
+
   // Fetch event details
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await axios.get(`/api/events/${id}`);
+        const res = await axios.get(`https://y-xi-drab.vercel.app/api/events/${id}`);
         setEvent(res.data);
       } catch (error) {
         console.error(error);
@@ -53,7 +55,7 @@ const EventDetails = () => {
     try {
       setJoining(true);
 
-      await axios.post("/api/joined-events", {
+      await axios.post("https://y-xi-drab.vercel.app/api/joined-events", {
         participantName: formData.name,
         participantEmail: formData.email,
         participantLocation: formData.userLocation, 

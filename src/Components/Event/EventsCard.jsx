@@ -58,9 +58,9 @@ const {loading} = useEvents();
         </div>
             
             <div className="mt-10 mx-5 w-full flex justify-center">
-                <Link to={`/events/${_id}`} className="w-full flex justify-center">
+                <Link to={`/api/events/${_id}`} className="w-full flex justify-center">
                     <span className="flex items-center gap-3 bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-white hover:text-green-600 hover:border-green-600 border transition-colors duration-300">
-                    View All EcoTips <ArrowBigRight />
+                    View Event <ArrowBigRight />
                     </span>
                 </Link>
                 </div>
