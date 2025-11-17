@@ -26,7 +26,7 @@ const Newsletter = () => {
 
 
      // Post data to MongoDB database
-fetch('http://localhost:3000/api/subscribe', {
+fetch('/api/subscribe', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'

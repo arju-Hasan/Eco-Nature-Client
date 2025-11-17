@@ -71,11 +71,6 @@ const Register = () => {
     };
 
 
-
-
-
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -121,7 +116,7 @@ const Register = () => {
                         }
 
                         // Now create user in the database
-                        fetch(`http://localhost:3000/users`, {
+                        fetch(`/users`, {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -132,12 +127,6 @@ const Register = () => {
                             .then(data => {
                                 console.log("Data after create user in the database : ", data);
                             })
-
-
-
-
-
-
 
                         // signput user
                         signOutUser();
@@ -187,51 +176,6 @@ const Register = () => {
 
     };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // signin with google 
-
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then((result) => {
@@ -246,7 +190,7 @@ const Register = () => {
 
                 }
                 // Now create user in the database
-                fetch(`http://localhost:3000/users`, {
+                fetch(`/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -310,9 +254,7 @@ const Register = () => {
                                     </div>
                                     {errors.password && (
                                         <p className="text-red-500 text-sm mt-1">{errors.password}</p>
-                                    )}
-
-                                    {/* <button className="btn  text-white bg-[#297B33] hover:bg-[#82B532] mt-4">Register</button> */}
+                                    )}                   
 
 
                                     <button

@@ -9,7 +9,7 @@ const useAllChallenges = (filters = {}) => {
   useEffect(() => {
     setLoading(true);
 
-    axios('http://localhost:3000/api/challenges')
+    axios('https://y-xi-drab.vercel.app/api/challenges')
       .then(res => {
         let data = res.data;
 

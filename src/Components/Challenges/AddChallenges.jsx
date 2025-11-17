@@ -66,7 +66,7 @@ const AddChallenges = () => {
   };
 
   try {
-    const res = await fetch("http://localhost:3000/api/challenges", {
+    const res = await fetch("/api/challenges", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -109,70 +109,6 @@ const AddChallenges = () => {
     console.error("Error:", error);
   }
 };
-
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!validate()) return;
-// 
-// 
-//     setFormData({
-//       title: "",
-//       category: "",
-//       description: "",
-//       duration: "",
-//       target: "",
-//       participants: 0,
-//       impactMetric: "",
-//       startDate: "",
-//       endDate: "",
-//       imageUrl: "",
-//       createdBy: user.email,
-//     });
-// 
-// 
-// fetch(`http://localhost:3000/api/challenges`, {
-//   method: "POST",
-//   headers: {
-//     "content-type": "application/json",
-//   },
-//   body: JSON.stringify(formData),
-// })
-//   .then((res) => res.json())
-//   .then((data) => {
-//     if (data.success) {
-//       Swal.fire({
-//         title: "Challenge Added!",
-//         text: "Your challenge has been successfully created.",
-//         icon: "success",
-//         confirmButtonText: "OK",
-//         buttonsStyling: false,
-//         customClass: {
-//           confirmButton:
-//             "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
-//         },
-//       });
-//       navigate("/my-activities");
-//     } else {
-//       Swal.fire({
-//         title: "Duplicate Challenge!",
-//         text: data.message || "You have already added this challenge.",
-//         icon: "error",
-//         confirmButtonText: "OK",
-//         buttonsStyling: false,
-//         customClass: {
-//           confirmButton:
-//             "bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-xl transition-colors",
-//         },
-//       });
-//     }
-//      if (loading) return <Loading />;
-//   })
-//   .catch((error) => console.error("Error:", error));
-// 
-// 
-//  
-//   };
 
 return (
   <div className="py-20">

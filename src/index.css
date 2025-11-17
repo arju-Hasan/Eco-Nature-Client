@@ -11,5 +11,4 @@
 /* Navbar Active color */
  .menu li > .active {
   @apply text-white bg-green-600 ;
-}
- 
+} 

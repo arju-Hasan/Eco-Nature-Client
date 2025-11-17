@@ -15,7 +15,7 @@ const MyActivities = () => {
 
 const fetchChallenges = useCallback(async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/challenges");
+    const res = await fetch("/api/challenges");
     const data = await res.json();
       console.log("API Data:", data);
     const userChallenges = data.filter(
@@ -54,7 +54,7 @@ const handleDelete = (id) => {
   }).then(async (result) => {
     if (result.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:3000/api/challenges/${id}`, {
+        const res = await fetch(`/api/challenges/${id}`, {
           method: "DELETE",
         });
         const data = await res.json();

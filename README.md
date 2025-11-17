@@ -1,10 +1,10 @@
-# HabitTracker - Daily Habit Building Web App
+# EcoTrack -  Building Web App
 
 This project is a full-stack MERN application built for an academic assignment. It allows users to create, track, manage, and analyze their daily habits to build streaks and boost productivity.
 
-**Live Site URL:** [https://dailyhabitlog.netlify.app](https://dailyhabitlog.netlify.app)
+**Live Site URL:** []
 
-**Server Site URL:** [https://my-habit-tracker-server.vercel.app](https://my-habit-tracker-server.vercel.app)
+**Server Site URL:** [https://y-xi-drab.vercel.app]
 
 ---
 
@@ -55,8 +55,8 @@ To run this project on your local machine, you will need to run both the Client 
 
 ```bash
 # Clone the server repository (assuming it's in a separate repo)
-git clone [https://github.com/jasujon570/habit-tracker-server](https://github.com/jasujon570/habit-tracker-server)
-cd habit-tracker-server
+git clone 
+cd open folder
 
 # Install dependencies
 npm install
@@ -75,8 +75,8 @@ npm run start
 
 ```bash
 # Clone this repository
-git clone [https://github.com/jasujon570/habit-tracker-client](https://github.com/jasujon570/habit-tracker-client)
-cd habit-tracker-client
+git clone 
+cd  open folder
 
 # Install dependencies
 npm install

@@ -90,44 +90,44 @@ const Footer = () => {
                     <div className="flex flex-col my-4">
                         <div className="flex space-x-4 text-xl">
                             <Link
-                                to={"https://www.facebook.com/EcoTrack"}
+                                to={""}
                                 target="_blank"
                                 className="hover:text-green-600 transition-colors"
                                 aria-label="Facebook"
                             >
-                                <FaFacebookF className="text-5xl" />
+                                <FaFacebookF className="text-3xl" />
                             </Link>
                             <Link
-                                to={"https://twitter.com/EcoTrack"}
+                                to={"https://twitter.com/arju95/"}
                                 target="_blank"
                                 className="hover:text-green-600 transition-colors"
                                 aria-label="Twitter"
                             >
-                                <FaXTwitter className="text-5xl" />
+                                <FaXTwitter className="text-3xl" />
                             </Link>
                             <Link
-                                to={"https://www.instagram.com/EcoTrack"}
+                                to={"https://www.instagram.com/95arjuhasan/"}
                                 target="_blank"
                                 className="hover:text-green-600 transition-colors"
                                 aria-label="Instagram"
                             >
-                                <FaInstagram className="text-5xl" />
+                                <FaInstagram className="text-3xl" />
                             </Link>
                             <Link
-                                to={"https://www.linkedin.com/company/EcoTrack"}
+                                to={"https://www.linkedin.com/in/raju-0-ahmed/"}
                                 target="_blank"
                                 className="hover:text-green-600 transition-colors"
                                 aria-label="LinkedIn"
                             >
-                                <FaLinkedinIn className="text-5xl" />
+                                <FaLinkedinIn className="text-3xl" />
                             </Link>
                             <Link
-                                to={"https://www.youtube.com/@EcoTrack"}
+                                to={"https://www.youtube.com/@Insidelife-you"}
                                 target="_blank"
                                 className="hover:text-green-600 transition-colors"
                                 aria-label="YouTube"
                             >
-                                <FaYoutube className="text-5xl" />
+                                <FaYoutube className="text-4xl" />
                             </Link>
                         </div>
                     </div>

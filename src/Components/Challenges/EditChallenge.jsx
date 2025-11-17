@@ -40,7 +40,7 @@ const EditChallenge = () => {
     if (!id) return;
     const fetchChallenge = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/challenges`);
+        const res = await fetch(`/api/challenges`);
         const data = await res.json();
         const challenge = data.find((c) => c._id === id);
         if (challenge) setFormData({ ...challenge });
@@ -80,7 +80,7 @@ const EditChallenge = () => {
     if (!validate()) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/challenges/${id}`, {
+      const res = await fetch(`/api/challenges/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -125,7 +125,7 @@ const EditChallenge = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`http://localhost:3000/api/challenges/${id}`, {
+          const res = await fetch(`api/challenges/${id}`, {
             method: "DELETE",
           });
           const data = await res.json();

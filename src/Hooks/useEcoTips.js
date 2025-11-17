@@ -9,7 +9,7 @@ const useEcoTips = () => {
 
     useEffect(()=> {
         setLoading(true)
-        axios('http://localhost:3000/api/eco-tips')
+        axios('https://y-xi-drab.vercel.app/api/eco-tips')
         .then(res => setEcoTips(res.data))
         .catch(err => setError(err))
         .finally(()=> setLoading(false))

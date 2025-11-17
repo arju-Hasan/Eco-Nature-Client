@@ -11,7 +11,7 @@ const useChallenges = () => {
 
     useEffect(()=> {
         setLoading(true)
-        axios('http://localhost:3000/api/challenges')
+        axios('https://y-xi-drab.vercel.app/api/challenges')
         .then(res => setChallenges(res.data))
         .catch(err => setError(err))
         .finally(()=> setLoading(false))
