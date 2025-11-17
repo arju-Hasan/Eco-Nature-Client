@@ -4,6 +4,7 @@ import useEcoTips from '../../Hooks/useEcoTips';
 import EcoTipCard from './EcoTipCard';
 import EcoTipCardSkeleton from './EcoTipCardSkeleton';
 import Container from '../../Layouts/Container';
+import Loading from '../../Pages/Loading';
 
 
 const EcoTips = () => {
@@ -13,13 +14,7 @@ const EcoTips = () => {
 
   if (loading) {
     return (
-        <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-          <EcoTipCardSkeleton key={n} />
-        ))}
-      </div>
-        </Container>
+        <Loading />
     );
   }
 

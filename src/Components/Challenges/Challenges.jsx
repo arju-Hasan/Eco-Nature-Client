@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import ActiveChallengesCard from "./ActiveChallengesCard";
-import Loading from "../../Pages/Loading";
+// import Loading from "../../Pages/Loading";
 import useAllChallenges from "../../Hooks/useAllChallenges";
 import ActiveChallengesCardSkeleton from "./ActiveChallengesCardSkeleton";
 import Container from "../../Layouts/Container";
+import Loading from "../../Pages/Loading";
 
 const Challenges = () => {
   // Filters input state
@@ -51,11 +52,7 @@ const Challenges = () => {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-        {[1, 2, 3, 4].map((n) => (
-          <ActiveChallengesCardSkeleton key={n} />
-        ))}
-      </div>
+      <Loading />
     );
   }
 

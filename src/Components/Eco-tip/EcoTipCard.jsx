@@ -102,7 +102,7 @@ const EcoTipCard = ({ tip }) => {
           }`}
         >
           <CircleCheckBig />
-          <span>{isVoting ? "Voting..." : "Upvote Tip"}</span>
+          <span>{isVoting ? "Voting..." : "Liked Tip"}</span>
         </button>
       </div>
       

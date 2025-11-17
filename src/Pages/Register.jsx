@@ -6,7 +6,8 @@ import { AuthContext } from '../Context/AuthContext';
 import { IoEyeOff } from 'react-icons/io5';
 import { FaEye } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -19,6 +20,8 @@ const Register = () => {
     const [errors, setErrors] = useState({});
     const { signInWithGoogle, createUser, updateUserProfile, signOutUser, setLoading, setUser, loading } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state || "/";
 
 
     //  All Validation Patterns
@@ -203,9 +206,8 @@ const Register = () => {
                     })
                 setLoading(false);
                 // signOutUser();
-                // setUser(null);
                 toast.success("Signin with Google Successfull!");
-                // navigate("/login");
+                navigate(from, { replace: true });
 
             })
             .catch((error) => {

@@ -12,7 +12,7 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to={"/"} >Home</NavLink></li>
         <li><NavLink to={"/challenges"} >Challenges</NavLink></li>
-        <li><NavLink to={"/eco-tips"} >Eco Tips</NavLink></li>
+        <li><NavLink to={"/eco-tips"} >Tips</NavLink></li>
         <li><NavLink to={"/events"} >Events</NavLink></li>
         <li><NavLink to={"/my-activities"} >My Activities</NavLink></li>
         <li><NavLink to={"/challenges-add"} >Add Challenges</NavLink></li>
