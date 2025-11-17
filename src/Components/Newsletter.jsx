@@ -26,7 +26,7 @@ const Newsletter = () => {
 
 
      // Post data to MongoDB database
-fetch('/api/subscribe', {
+fetch('https://y-xi-drab.vercel.app/api/subscribe', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
