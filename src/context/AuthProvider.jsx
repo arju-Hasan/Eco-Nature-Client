@@ -8,14 +8,9 @@ import { useEffect } from 'react';
 const googleProvider = new GoogleAuthProvider();
 
 
-
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
-
-
-
 
     // Create new user 
     const createUser = (email, password) => {
@@ -63,8 +58,6 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-
-
     const authInfo = {
         user,
         setUser,
@@ -76,16 +69,7 @@ const AuthProvider = ({ children }) => {
         signInWithGoogle,
         signOutUser,
 
-
-
-
-
     };
-
-
-
-
-
 
     return (
         <AuthContext value={authInfo}>

@@ -95,11 +95,7 @@ const Login = () => {
                 console.log(e);
                 toast.error(e.message);
             })
-
-
     }
-
-
 
     // signin with google 
 

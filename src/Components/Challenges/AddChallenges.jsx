@@ -66,7 +66,7 @@ const AddChallenges = () => {
   };
 
   try {
-    const res = await fetch("/api/challenges", {
+    const res = await fetch("https://y-xi-drab.vercel.app/api/challenges", {
       method: "POST",
       headers: {
         "content-type": "application/json",

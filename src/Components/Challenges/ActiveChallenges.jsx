@@ -22,7 +22,7 @@ const ActiveChallenges = () => {
         const end = new Date(challenge.endDate);
         return today >= start && today <= end;
     });
-    const firstFourActive = activeChallenges.slice(0, 4);
+    const firstFourActive = activeChallenges.slice(0, 4);    
 
     // console.log("Active data: ",firstFourActive);
 

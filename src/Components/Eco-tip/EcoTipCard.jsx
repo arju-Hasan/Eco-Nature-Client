@@ -15,54 +15,51 @@ const EcoTipCard = ({ tip }) => {
   const [voteCount, setVoteCount] = useState(upvotes);
   const [isVoting, setIsVoting] = useState(false);
 
-  const handleUpvote = async () => {
-    if (isVoting) return;
 
-    // Check if already voted
-    const voted = localStorage.getItem(`voted_${_id}`);
-    if (voted) {
-      return Swal.fire({
-        icon: "warning",
-        title: "Already Upvoted!",
-        text: "You have already voted for this tip.",
-        confirmButtonText: "OK",
-        customClass: {
-          confirmButton:
-            "bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-xl transition-colors",
-        },
-      });
-    }
 
-    try {
-      setIsVoting(true);
-      setVoteCount(prev => prev + 1);
+const handleUpvote = async () => {
+  if (!user?.email) {
+    return Swal.fire({
+      icon: "warning",
+      title: "Login Required",
+      text: "Please login to upvote!",
+    });
+  }
 
- await axios.patch(
-  `/api/eco-tips/${_id}/upvote`,
-  { email: user?.email }
-);
+  try {
+    setIsVoting(true);
 
-      // Store vote status
-      localStorage.setItem(`voted_${_id}`, true);
 
-      Swal.fire({
-        icon: "success",
-        title: "Vote Successful!",
-        text: "Upvote added successfully 🎉",
-        confirmButtonText: "OK",
-        customClass: {
-          confirmButton:
-            "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
-        },
-      });
+    const res = await axios.patch(`https://y-xi-drab.vercel.app/api/eco-tips/${_id}/upvotes`, {
+      email: user.email,
+    });
 
-    } catch (error) {
-      console.error("Error upvoting:", error);
-      setVoteCount(prev => prev - 1);
-    } finally {
-      setIsVoting(false);
-    }
-  };
+
+    setVoteCount(prev => prev + 1);
+
+    Swal.fire({
+      icon: "success",
+      title: "Vote Successful!",
+      text: res.data.message,
+      confirmButtonText: "OK",
+      customClass: {
+        confirmButton:
+          "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
+      },
+    });
+  } catch (err) {
+    console.error("Error upvoting:", err);
+    Swal.fire({
+      icon: "error",
+      text: "Upvote Failed",
+      title: err.response?.data?.message || "Something went wrong",
+    });
+  } finally {
+    setIsVoting(false);
+  }
+};
+
+
 
   return (
     <div className=" bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg p-4">
