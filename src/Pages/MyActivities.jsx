@@ -50,7 +50,7 @@ useEffect(() => {
           setEvents(myEvents);
         }
       } catch (error) {
-        console.error("Failed to fetch events:", error);
+        console.error("Failed to fetch events:", error);"'"
       } finally {
         setLoading(false);
       }

@@ -1,4 +1,4 @@
-# EcoTrack -  Building Web App
+# EcoTrack - Building Web App
 
 This project is a full-stack MERN application built for an academic assignment. It allows users to create, track, manage, and analyze their daily habits to build streaks and boost productivity.
 
@@ -7,44 +7,48 @@ This project is a full-stack MERN application built for an academic assignment. 
 **Server Site URL:** [https://y-xi-drab.vercel.app]
 
 **Eco-Track-server-git URL:** [https://github.com/arju-Hasan/Eco-Nature-Server]
+
 ---
 
 ## 🚀 Key Features
 
-* **Full MERN Stack Implementation:** Utilizes React for the client, Express.js and Node.js for the server, and MongoDB (Native Driver) for the database.
-* **Secure Firebase Authentication:** Features secure login and registration using Email/Password and Google Sign-In (Popup).
-* **Server-Side JWT Security:** Implements Firebase Admin SDK on the server to create and verify JWTs. Protected API routes ensure users can only access or modify *their own* habit data.
-* **Complete CRUD Operations:** Users can Create, Read, Update (in a modal), and Delete (with `sweetalert2` confirmation) their personal habits.
-* **Streak & Progress Tracking:** Automatically calculates and displays the user's current streak (consecutive days) for each habit and shows a 30-day progress bar on the details page.
-* **Analytics Dashboard (Optional Challenge):** Features a responsive bar chart (built with `Recharts`) visualizing the user's habit completion statistics over the last 7 days.
-* **Advanced Filtering & Animation:** Includes a public "Browse Habits" page with dynamic search (by title) and filtering (by category), plus subtle scroll animations (`Framer Motion`) on the home page.
-* **Axios Interceptor (Optional Challenge):** Uses an `axios` interceptor to automatically attach the Firebase JWT (token) to all secure API requests from the client.
-* **Custom Dark/Light Theme:** A theme toggle allows users to switch between a custom theme and a standard light/dark theme, with the preference saved in `localStorage`.
+- **Full MERN Stack Implementation:** Utilizes React for the client, Express.js and Node.js for the server, and MongoDB (Native Driver) for the database.
+- **Secure Firebase Authentication:** Features secure login and registration using Email/Password and Google Sign-In (Popup).
+- **Server-Side JWT Security:** Implements Firebase Admin SDK on the server to create and verify JWTs. Protected API routes ensure users can only access or modify _their own_ habit data.
+- **Complete CRUD Operations:** Users can Create, Read, Update (in a modal), and Delete (with `sweetalert2` confirmation) their personal habits.
+- **Streak & Progress Tracking:** Automatically calculates and displays the user's current streak (consecutive days) for each habit and shows a 30-day progress bar on the details page.
+- **Analytics Dashboard (Optional Challenge):** Features a responsive bar chart (built with `Recharts`) visualizing the user's habit completion statistics over the last 7 days.
+- **Advanced Filtering & Animation:** Includes a public "Browse Habits" page with dynamic search (by title) and filtering (by category), plus subtle scroll animations (`Framer Motion`) on the home page.
+- **Axios Interceptor (Optional Challenge):** Uses an `axios` interceptor to automatically attach the Firebase JWT (token) to all secure API requests from the client.
+- **Custom Dark/Light Theme:** A theme toggle allows users to switch between a custom theme and a standard light/dark theme, with the preference saved in `localStorage`.
 
 ---
 
 ## 💻 Technologies Used
 
 ### Frontend (Client-Side)
-* **Core:** React.js, React Router DOM
-* **State Management:** React Context API
-* **Styling:** Tailwind CSS, daisyUI
-* **Authentication:** Firebase Authentication
-* **Data Fetching:** Axios (with Interceptors for JWT)
-* **Animations:** Framer Motion, Lottie-Web
-* **Forms:** React Hook Form
-* **Notifications:** React Hot Toast, SweetAlert2
-* **Charts:** Recharts
+
+- **Core:** React.js, React Router DOM
+- **State Management:** React Context API
+- **Styling:** Tailwind CSS, daisyUI
+- **Authentication:** Firebase Authentication
+- **Data Fetching:** Axios (with Interceptors for JWT)
+- **Animations:** Framer Motion, Lottie-Web
+- **Forms:** React Hook Form
+- **Notifications:** React Hot Toast, SweetAlert2
+- **Charts:** Recharts
 
 ### Backend (Server-Side)
-* **Core:** Node.js, Express.js
-* **Database:** MongoDB (Native Driver)
-* **Security:** Firebase Admin SDK (JWT Verification)
-* **Middleware:** CORS
+
+- **Core:** Node.js, Express.js
+- **Database:** MongoDB (Native Driver)
+- **Security:** Firebase Admin SDK (JWT Verification)
+- **Middleware:** CORS
 
 ### Deployment
-* **Client:** Netlify
-* **Server:** Vercel
+
+- **Client:** Netlify
+- **Server:** Vercel
 
 ---
 
@@ -56,7 +60,7 @@ To run this project on your local machine, you will need to run both the Client 
 
 ```bash
 # Clone the server repository (assuming it's in a separate repo)
-git clone 
+git clone
 cd open folder
 
 # Install dependencies
@@ -76,7 +80,7 @@ npm run start
 
 ```bash
 # Clone this repository
-git clone 
+git clone
 cd  open folder
 
 # Install dependencies
@@ -96,7 +100,8 @@ VITE_APP_ID=your_firebase_app_id
 # Run the client
 npm run dev
 ```
-*(**Note:** If `VITE_API_URL` is not set, the app will automatically connect to the live Vercel server.)*
+
+_(**Note:** If `VITE_API_URL` is not set, the app will automatically connect to the live Vercel server.)_
 
 ---
 
