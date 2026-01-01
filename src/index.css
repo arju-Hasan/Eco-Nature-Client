@@ -2,13 +2,12 @@
 @plugin "daisyui";
 
 /* Swiper slider resources */
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
-@import 'swiper/css/scrollbar';
-
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/scrollbar";
 
 /* Navbar Active color */
- .menu li > .active {
-  @apply text-white bg-green-600 ;
-} 
+.menu li > .active {
+  @apply text-white bg-green-600;
+}
