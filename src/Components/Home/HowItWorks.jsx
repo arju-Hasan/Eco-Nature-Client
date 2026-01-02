@@ -23,7 +23,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 bg-white" id="how-it-works">
+    <section className="py-20 " id="how-it-works">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.h2
           className="text-4xl md:text-4xl font-bold text-green-600 mb-6"
@@ -34,24 +34,28 @@ const HowItWorks = () => {
           How It Works
         </motion.h2>
 
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-          EcoTrack makes sustainable living simple and measurable.  
-          Just follow three easy steps and start your journey toward a greener lifestyle.
+        <p className=" max-w-2xl mx-auto mb-12">
+          EcoTrack makes sustainable living simple and measurable. Just follow
+          three easy steps and start your journey toward a greener lifestyle.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="bg-green-50 rounded-2xl shadow-md hover:shadow-lg p-8 text-center border border-green-100 transition-all duration-300"
+              className="bg-green-200 rounded-2xl shadow-md hover:shadow-lg p-8 text-center border border-green-100 transition-all duration-300"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
               <div className="flex justify-center mb-4">{step.icon}</div>
-              <h3 className="font-semibold text-green-600 text-lg mb-2">{step.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+              <h3 className="font-semibold text-green-600 text-lg mb-2">
+                {step.title}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {step.desc}
+              </p>
             </motion.div>
           ))}
         </div>

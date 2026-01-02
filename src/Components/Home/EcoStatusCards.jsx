@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FaLeaf, FaUsers, FaCloud } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
 import Container from "../../Layouts/Container";
 import useChallenges from "../../Hooks/useChallenges";
-import active from "../../assets/Active-Challenges.webp"
-import { Activity, Cloud, Users } from "lucide-react";
+import active from "../../assets/Active-Challenges.webp";
+
+import { LuActivity } from "react-icons/lu";
+import { LiaCloudSunRainSolid } from "react-icons/lia";
 
 const EcoStatusCards = () => {
   const { challenges, loading, error } = useChallenges();
@@ -20,8 +22,7 @@ const EcoStatusCards = () => {
 
       // Active Challenges: ongoing today
       const activeChallenges = challenges.filter(
-        (ch) =>
-          new Date(ch.startDate) <= today && new Date(ch.endDate) >= today
+        (ch) => new Date(ch.startDate) <= today && new Date(ch.endDate) >= today
       ).length;
 
       // Total Participants: sum of participants field
@@ -41,37 +42,50 @@ const EcoStatusCards = () => {
   }, [challenges, loading]);
 
   if (loading) return <p className="text-center mt-10">Loading...</p>;
-  if (error) return <p className="text-center mt-10 text-red-500">{error.message}</p>;
+  if (error)
+    return <p className="text-center mt-10 text-red-500">{error.message}</p>;
 
   return (
-    <div className="pt-20 pb-5 bg-base-200">
+    <div className="pt-20 pb-5">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="p-6 bg-white rounded-2xl shadow text-center border border-gray-100">
-            <div className="flex justify-center text-green-500 font-extrabold text-3xl mb-2">
-              <Activity />
+          <div className="card">
+            <div className="card2 p-7 text-center bg-green-200">
+              <div className="flex justify-center text-green-600 font-extrabold text-5xl mb-2">
+                <LuActivity />
+              </div>
+              <h2 className="text-5xl p-2 font-bold text-black">
+                {stats.activeChallenges}
+              </h2>
+              <p className="text-black mt-1 font-bold">Active Challenges</p>
             </div>
-            <h2 className="text-4xl font-bold">{stats.activeChallenges}</h2>
-            <p className="text-gray-500 mt-1">Active Challenges</p>
           </div>
 
           {/* Card 2 */}
-          <div className="p-6 bg-white rounded-2xl shadow text-center border border-gray-100">
-            <div className="flex justify-center text-green-500 font-extrabold text-7xl mb-2">
-              <Users />
+          <div className="card">
+            <div className="card2 p-7 text-center bg-green-200">
+              <div className="flex justify-center text-green-600 font-extrabold text-5xl mb-2">
+                <FaUsers />
+              </div>
+              <h2 className="text-5xl font-bold p-2 text-black">
+                {stats.totalParticipants}
+              </h2>
+              <p className="text-black mt-1 font-bold">Total Participants</p>
             </div>
-            <h2 className="text-3xl font-bold">{stats.totalParticipants}</h2>
-            <p className="text-gray-500 mt-1">Total Participants</p>
           </div>
 
           {/* Card 3 */}
-          <div className="p-6 bg-white rounded-2xl shadow text-center border border-gray-100">
-            <div className="flex justify-center text-green-500 text-3xl mb-2">
-              <Cloud />
+          <div className="card">
+            <div className="card2 p-7 text-center bg-green-200">
+              <div className="flex justify-center text-green-600 text-6xl mb-2">
+                <LiaCloudSunRainSolid />
+              </div>
+              <h2 className="text-5xl font-bold text-black">
+                {stats.co2Saved} kg
+              </h2>
+              <p className="text-black mt-2 font-bold">CO₂ Saved</p>
             </div>
-            <h2 className="text-3xl font-bold">{stats.co2Saved} kg</h2>
-            <p className="text-gray-500 mt-1">CO₂ Saved</p>
           </div>
         </div>
       </Container>
