@@ -92,7 +92,7 @@ const DashboardLayout = () => {
           <label
             htmlFor="my-drawer-4"
             aria-label="open sidebar"
-            className="btn btn-square btn-ghost text-green-600"
+            className="btn btn-square btn-ghost text-green-600 hidden lg:flex"
           >
             {isOpen ? (
               <SquareArrowLeft />
@@ -110,8 +110,65 @@ const DashboardLayout = () => {
           <Outlet />
         </main>
         {/* <Footer /> */}
+
+        <div className="flex justify-around items-center gap-2 lg:hidden">
+          <li className="">
+            <NavLink
+              className={({ isActive }) =>
+                `flex gap-2 p-2 rounded-field items-center ${
+                  isActive ? "bg-green-600 text-white font-bold" : ""
+                }`
+              }
+              data-tip="Assigned Deliveries"
+              to="/dashboard"
+              end
+            >
+              <FaTasks />
+              {/* <span className="is-drawer-close:hidden">Dashboard</span> */}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                `is-drawer-close:hidden is-drawer-close:tooltip-right ${
+                  isActive ? "bg-secondary" : ""
+                }`
+              }
+              data-tip="Completed Deliveries"
+              to="/dashboard/mychallenge"
+            >
+              <SiGoogletasks />
+              {/* <span className="is-drawer-close:hidden">Posted Request</span> */}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                `is-drawer-close:hidden is-drawer-close:tooltip-right ${
+                  isActive ? "bg-secondary text-white font-bold" : ""
+                }`
+              }
+              data-tip="Completed Deliveries"
+              to="/dashboard/userprofile"
+            >
+              <CgProfile />
+              {/* <span className="is-drawer-close:hidden">Update profile</span> */}
+            </NavLink>
+          </li>
+          <li>
+            <button
+              onClick={handleLogOut}
+              className={`is-drawer-close:hidden is-drawer-close:tooltip-right  "bg-secondary font-bold"
+                                    `}
+              data-tip="Settings"
+            >
+              {/* Settings icon */}
+              <MdOutlineLogout />
+              {/* <span className="is-drawer-close:hidden">LogOut</span> */}
+            </button>
+          </li>
+        </div>
       </div>
-      <h2>alsjdklaklshkjaKL</h2>
       <div className="drawer-side is-drawer-close:overflow-visible">
         <label
           htmlFor="my-drawer-4"
@@ -125,7 +182,7 @@ const DashboardLayout = () => {
             {/* List item */}
             <li>
               <Link
-                className="is-drawer-close:hidden bg-base-300 text-2xl font-semibold text-green-600 is-drawer-close:tooltip-right mb-5"
+                className="mx-auto is-drawer-close:hidden bg-base-300 text-2xl font-semibold text-green-600 is-drawer-close:tooltip-right mb-5"
                 to="/"
               >
                 <img className="w-10 h-10 " src={logoImg} alt="" /> Track
@@ -155,7 +212,6 @@ const DashboardLayout = () => {
               {/* user only links */}
               {
                 <>
-                  {/* <h2></h2> */}
                   <li className="">
                     <NavLink
                       className={({ isActive }) =>
@@ -180,7 +236,7 @@ const DashboardLayout = () => {
                         }`
                       }
                       data-tip="Completed Deliveries"
-                      to="/dashboard/sPosted"
+                      to="/dashboard/mychallenge"
                     >
                       <SiGoogletasks />
                       <span className="is-drawer-close:hidden">

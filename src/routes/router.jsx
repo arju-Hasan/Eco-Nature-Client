@@ -16,6 +16,8 @@ import EventDetails from "../Components/Event/EventDetails";
 import ViewChallenge from "../Components/Challenges/ViewChallenge";
 import EditChallenge from "../Components/Challenges/EditChallenge";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import DashHome from "../Components/Dashboard/DashHome";
+import MyChallenge from "../Components/Dashboard/MyChallenge";
 
 const router = createBrowserRouter([
   {
@@ -103,6 +105,16 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     errorElement: <Error404 />,
     hydrateFallbackElement: <Loading />,
+    children: [
+      {
+        index: true,
+        element: <DashHome />,
+      },
+      {
+        path: "/dashboard/mychallenge",
+        element: <MyChallenge />,
+      },
+    ],
   },
 ]);
 export default router;
