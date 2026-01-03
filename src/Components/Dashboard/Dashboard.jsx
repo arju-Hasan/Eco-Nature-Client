@@ -26,8 +26,6 @@ import { IoHome } from "react-icons/io5";
 import { PiStudentBold } from "react-icons/pi";
 import uition from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext";
-import Footer from "../Footer/Footer";
-import TextRotator from "./Anamition";
 
 const DashboardLayout = () => {
   const { user, signOutUser, loading } = useContext(AuthContext);
@@ -103,16 +101,17 @@ const DashboardLayout = () => {
             )}
           </label>
           <div className="px-4 text-2xl font-bold">
-            <TextRotator />
+            <span className="text-2xl font-bold">Eco Tracking Dashboard</span>
           </div>
         </nav>
+
         {/* Page content here */}
         <main className="flex-grow">
           <Outlet />
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
-
+      <h2>alsjdklaklshkjaKL</h2>
       <div className="drawer-side is-drawer-close:overflow-visible">
         <label
           htmlFor="my-drawer-4"
@@ -212,7 +211,7 @@ const DashboardLayout = () => {
               <li>
                 <button
                   onClick={handleLogOut}
-                  className={`is-drawer-close:hidden is-drawer-close:tooltip-right  "bg-secondary font-bold" 
+                  className={`is-drawer-close:hidden is-drawer-close:tooltip-right  "bg-secondary font-bold"
                                     `}
                   data-tip="Settings"
                 >
@@ -234,3 +233,155 @@ const DashboardLayout = () => {
   );
 };
 export default DashboardLayout;
+
+// import React, { useContext, useEffect, useState } from "react";
+// import { MdOutlineLogout } from "react-icons/md";
+// import { Link, NavLink, Outlet } from "react-router";
+// import logoImg from "../../assets/logo.png";
+// import { FaTasks } from "react-icons/fa";
+// import { SiGoogletasks } from "react-icons/si";
+// import { CgProfile } from "react-icons/cg";
+// import { IoHome } from "react-icons/io5";
+// import Swal from "sweetalert2";
+// import { AuthContext } from "../../Context/AuthContext";
+
+// const DashboardLayout = () => {
+//   const { signOutUser } = useContext(AuthContext);
+
+//   const handleLogOut = () => {
+//     Swal.fire({
+//       title: "Are you sure?",
+//       text: "Logout Right Now",
+//       icon: "warning",
+//       showCancelButton: true,
+//       confirmButtonColor: "#3085d6",
+//       cancelButtonColor: "#d33",
+//       confirmButtonText: "Yes, Logout!",
+//     }).then((result) => {
+//       if (result.isConfirmed) {
+//         signOutUser().then();
+//         Swal.fire({
+//           title: "Logout!!!",
+//           text: "Logout Successful",
+//           icon: "success",
+//         });
+//       }
+//     });
+//   };
+
+//   return (
+//     <div className="drawer lg:drawer-open max-w-7xl mx-auto">
+//       {/* Main content */}
+//       <div className="drawer-content flex flex-col min-h-screen">
+//         {/* Page content */}
+//         <main className="flex-grow">
+//           <Outlet />
+//         </main>
+
+//         {/* Mobile bottom navbar */}
+//         <nav className="navbar w-full bg-base-200 fixed bottom-0 z-50 lg:hidden justify-around border-t border-gray-300">
+//           <NavLink
+//             to="/"
+//             className="btn btn-ghost tooltip tooltip-top"
+//             data-tip="Home"
+//           >
+//             <IoHome className="text-xl" />
+//           </NavLink>
+//           <NavLink
+//             to="/dashboard"
+//             className="btn btn-ghost tooltip tooltip-top"
+//             data-tip="Dashboard"
+//           >
+//             <FaTasks className="text-xl" />
+//           </NavLink>
+//           <NavLink
+//             to="/dashboard/sPosted"
+//             className="btn btn-ghost tooltip tooltip-top"
+//             data-tip="Posted Request"
+//           >
+//             <SiGoogletasks className="text-xl" />
+//           </NavLink>
+//           <NavLink
+//             to="/dashboard/userprofile"
+//             className="btn btn-ghost tooltip tooltip-top"
+//             data-tip="Profile"
+//           >
+//             <CgProfile className="text-xl" />
+//           </NavLink>
+//           <button
+//             onClick={handleLogOut}
+//             className="btn btn-ghost tooltip tooltip-top"
+//             data-tip="Logout"
+//           >
+//             <MdOutlineLogout className="text-xl" />
+//           </button>
+//         </nav>
+//       </div>
+
+//       {/* Sidebar (Desktop only) */}
+//       <div className="drawer-side hidden lg:flex">
+//         <div className="flex min-h-full flex-col items-start bg-base-200 w-56">
+//           <ul className="menu w-full grow p-3">
+//             <li className="mb-5">
+//               <Link className="text-2xl font-bold text-green-600" to="/">
+//                 <img className="w-10 h-10 inline" src={logoImg} alt="" /> Track
+//               </Link>
+//             </li>
+//             <li>
+//               <NavLink
+//                 to="/"
+//                 end
+//                 className={({ isActive }) =>
+//                   isActive ? "bg-secondary text-white font-bold" : ""
+//                 }
+//               >
+//                 <IoHome /> Home
+//               </NavLink>
+//             </li>
+//             <li>
+//               <NavLink
+//                 to="/dashboard"
+//                 end
+//                 className={({ isActive }) =>
+//                   isActive ? "bg-green-600 text-white font-bold" : ""
+//                 }
+//               >
+//                 <FaTasks /> Dashboard
+//               </NavLink>
+//             </li>
+//             <li>
+//               <NavLink
+//                 to="/dashboard/sPosted"
+//                 className={({ isActive }) =>
+//                   isActive ? "bg-secondary text-white font-bold" : ""
+//                 }
+//               >
+//                 <SiGoogletasks /> Posted Request
+//               </NavLink>
+//             </li>
+//             <li>
+//               <NavLink
+//                 to="/dashboard/userprofile"
+//                 className={({ isActive }) =>
+//                   isActive ? "bg-secondary text-white font-bold" : ""
+//                 }
+//               >
+//                 <CgProfile /> Update Profile
+//               </NavLink>
+//             </li>
+//             <li>
+//               <button
+//                 onClick={handleLogOut}
+//                 className="bg-secondary text-white font-bold w-full mt-3"
+//               >
+//                 <MdOutlineLogout /> LogOut
+//               </button>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default DashboardLayout;
