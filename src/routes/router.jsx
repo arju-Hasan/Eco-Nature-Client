@@ -15,70 +15,94 @@ import Events from "../Components/Event/Events";
 import EventDetails from "../Components/Event/EventDetails";
 import ViewChallenge from "../Components/Challenges/ViewChallenge";
 import EditChallenge from "../Components/Challenges/EditChallenge";
-
+import Dashboard from "../Components/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
-    errorElement: <Error404/>,
-    hydrateFallbackElement: <Loading/>,
-    children:[
-        {
-            index: true,
-            element: <Home/>,
-        },
-        {
-            path: '/eco-tips',
-            element: <EcoTips/>,
-        },
-        {
-            path: '/events',
-            element: <Events/>,
-        },
-        {
-            path: '/api/events/:id',
-            element: <PrivateRoute><EventDetails/></PrivateRoute>,
-        },
-        {
-            path: '/register',
-            element: <Register/>
-        },
-        {
-            path: '/login',
-            element: <Login/>
-        },
-        {
-            path: '/*',
-            element: <Error404/>,
-        },
-        {
-            path: '/forgot-password',
-            element: <ForgotPassword/>,
-        },
-        {
-            path: '/challenges',
-            element: <Challenges/>,
-        },
-        {
-            path: '/challenges-add',
-            element: <PrivateRoute><AddChallenges/></PrivateRoute>,
-        },
-        {
-            path: '/challenges/:id',
-            element: <PrivateRoute><ViewChallenge/></PrivateRoute>,
-        },
-        {
-            path: '/my-activities',
-            element: <PrivateRoute><MyActivities/></PrivateRoute>,
-           
-        },
-        {
-            path: '/my-activities/:id',
-            element: <PrivateRoute><EditChallenge/></PrivateRoute>,
-        },
-
-    ]
+    element: <Root />,
+    errorElement: <Error404 />,
+    hydrateFallbackElement: <Loading />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/eco-tips",
+        element: <EcoTips />,
+      },
+      {
+        path: "/events",
+        element: <Events />,
+      },
+      {
+        path: "/api/events/:id",
+        element: (
+          <PrivateRoute>
+            <EventDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/*",
+        element: <Error404 />,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "/challenges",
+        element: <Challenges />,
+      },
+      {
+        path: "/challenges-add",
+        element: (
+          <PrivateRoute>
+            <AddChallenges />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/challenges/:id",
+        element: (
+          <PrivateRoute>
+            <ViewChallenge />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-activities",
+        element: (
+          <PrivateRoute>
+            <MyActivities />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-activities/:id",
+        element: (
+          <PrivateRoute>
+            <EditChallenge />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    errorElement: <Error404 />,
+    hydrateFallbackElement: <Loading />,
   },
 ]);
 export default router;

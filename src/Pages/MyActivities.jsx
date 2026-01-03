@@ -7,6 +7,8 @@ import axios from "axios";
 import Container from "../Layouts/Container";
 import { FaCalendarAlt, FaMapMarkerAlt, FaUser, FaUsers } from "react-icons/fa";
 import Loading from "./Loading";
+import { GiChalkOutlineMurder } from "react-icons/gi";
+import { MdEmojiEvents } from "react-icons/md";
 // import Loading from '../Pages/Loading'
 
 const MyActivities = () => {
@@ -155,12 +157,13 @@ const MyActivities = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="py-20">
+    <div className="pb-20 pt-5">
       <Container>
         {/* my activity */}
-        <div className="max-w-4xl mx-auto  space-y-4">
-          <h2 className="text-2xl font-bold mb-6 text-green-600 text-center">
-            My Challenges....
+        <div className="mx-auto  space-y-4">
+          <h2 className="flex gap-2 justify-center items-center text-2xl font-bold mb-6 text-green-600">
+            <GiChalkOutlineMurder className="text-green-600" />
+            My Challenges
           </h2>
 
           {challenges.length === 0 ? (
@@ -170,10 +173,12 @@ const MyActivities = () => {
               {challenges.map((challenge) => (
                 <div
                   key={challenge._id}
-                  className="flex justify-between border-1 border-green-100 hover:border-green-700 items-center p-4 bg-white shadow-xl shadow-green-200 rounded-lg hover:shadow-xl transition-shadow duration-300"
+                  className="flex justify-between bg-green-200 shadow-sm hover:shadow-md shadow-green-600 border-2 border-green-100 hover:border-green-700 items-center p-4 rounded-lg transition-shadow duration-300"
                 >
                   <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">{challenge.title}</h3>
+                    <h3 className="text-lg text-green-700 font-semibold">
+                      {challenge.title}
+                    </h3>
                     <p className="text-sm text-gray-600">
                       Category: {challenge.category}
                     </p>
@@ -206,49 +211,47 @@ const MyActivities = () => {
 
         {/* my events */}
         <div>
-          <h2 className="text-2xl font-bold mt-16 mb-6 text-green-600 text-center">
-            {" "}
+          <h2 className="flex gap-2 justify-center items-center text-2xl font-bold mt-10 mb-6 text-green-600">
+            <MdEmojiEvents className="text-green-600" />
             My Events
           </h2>
-          <div className="max-w-4xl mx-auto my-2  bg-white rounded-2xl shadow-lg border border-gray-200">
-            {events.length === 0 ? (
-              <p className="text-center text-gray-500">No events found.</p>
-            ) : (
-              <div className="space-y-4">
-                {events.map((event) => (
-                  <div
-                    key={event._id}
-                    className=" border-1 border-green-700 hover:border-1 p-4 rounded-xl shadow-md hover:shadow-xl shadow-black transition-all"
-                  >
-                    <h2 className="text-xl font-semibold text-green-700 mb-2">
-                      {event.title}
-                    </h2>
-                    <p className="text-gray-700 mb-3">{event.description}</p>
+          {/* <div className="mx-auto my-2 bg-red-500 rounded-2xl shadow-lg border border-gray-200"> */}
+          {events.length === 0 ? (
+            <p className="text-center text-gray-500">No events found.</p>
+          ) : (
+            <div className="flex justify-between bg-green-200 shadow-sm hover:shadow-md shadow-green-600 border-2 border-green-100 hover:border-green-700 items-center p-0 rounded-lg transition-shadow duration-300">
+              {events.map((event) => (
+                <div
+                  key={event._id}
+                  className="border-green-700 p-4 transition-all"
+                >
+                  <h2 className="text-xl font-semibold text-green-700 mb-2">
+                    {event.title}
+                  </h2>
+                  <p className="text-gray-700 mb-3">{event.description}</p>
 
-                    <div className="flex flex-wrap gap-4 text-gray-700 mb-3">
-                      <p className="flex items-center gap-2">
-                        <FaCalendarAlt className="text-green-700" />
-                        {new Date(event.date).toLocaleString()}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <FaMapMarkerAlt className="text-green-700" />{" "}
-                        {event.location}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <FaUser className="text-green-700" /> {event.organizer}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <FaUsers className="text-green-700" />{" "}
-                        {event.currentParticipants} / {event.maxParticipants}{" "}
-                        participants
-                      </p>
-                    </div>
+                  <div className="flex flex-wrap gap-4 text-gray-700 mb-3">
+                    <p className="flex items-center gap-2">
+                      <FaCalendarAlt className="text-green-700" />
+                      {new Date(event.date).toLocaleString()}
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <FaMapMarkerAlt className="text-green-700" />{" "}
+                      {event.location}
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <FaUser className="text-green-700" /> {event.organizer}
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <FaUsers className="text-green-700" />{" "}
+                      {event.currentParticipants} / {event.maxParticipants}{" "}
+                      participants
+                    </p>
                   </div>
-                ))}
-              </div>
-            )}
-            ;
-          </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* my voting */}
@@ -263,7 +266,7 @@ const MyActivities = () => {
             {myTips.map((tip) => (
               <div
                 key={tip._id}
-                className="bg-white border-1 border-gray-200 rounded-lg shadow-xl shadow-green-200 p-4"
+                className="border border-green-600 rounded-lg hover:shadow-md shadow-green-600 p-4"
               >
                 <div className="bg-green-600 px-4 py-2 rounded-tl-full rounded-br-full mb-4">
                   <h2 className="text-white text-center font-semibold text-lg">

@@ -49,9 +49,9 @@ const WhyGoGreen = () => {
   return (
     <section className="py-10" id="why-go-green">
       <Container>
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="mx-auto px-6 text-center">
           <motion.h2
-            className="flex text-3xl md:text-4xl font-bold text-green-600 mb-6"
+            className="flex text-3xl md:text-4xl gap-2 justify-center font-bold text-green-600 mb-6"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}

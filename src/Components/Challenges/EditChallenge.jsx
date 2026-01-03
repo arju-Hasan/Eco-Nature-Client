@@ -62,11 +62,13 @@ const EditChallenge = () => {
     const newErrors = {};
     if (!formData.title) newErrors.title = "Title is required";
     if (!formData.category) newErrors.category = "Category is required";
-    if (!formData.description) newErrors.description = "Description is required";
+    if (!formData.description)
+      newErrors.description = "Description is required";
     if (!formData.duration || isNaN(formData.duration))
       newErrors.duration = "Duration must be a number";
     if (!formData.target) newErrors.target = "Target is required";
-    if (!formData.impactMetric) newErrors.impactMetric = "Impact metric required";
+    if (!formData.impactMetric)
+      newErrors.impactMetric = "Impact metric required";
     if (!formData.startDate) newErrors.startDate = "Start date required";
     if (!formData.endDate) newErrors.endDate = "End date required";
     if (!formData.imageUrl) newErrors.imageUrl = "Image URL required";
@@ -80,11 +82,14 @@ const EditChallenge = () => {
     if (!validate()) return;
 
     try {
-      const res = await fetch(`https://y-xi-drab.vercel.app/api/challenges/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `https://y-xi-drab.vercel.app/api/challenges/${id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
       if (data.modifiedCount) {
         Swal.fire({
@@ -94,7 +99,8 @@ const EditChallenge = () => {
           confirmButtonText: "OK",
           buttonsStyling: false,
           customClass: {
-            confirmButton: "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl",
+            confirmButton:
+              "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl",
           },
         });
         navigate("/my-activities");
@@ -118,16 +124,21 @@ const EditChallenge = () => {
       cancelButtonText: "Cancel",
       buttonsStyling: false,
       customClass: {
-        confirmButton: "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl mr-2",
-        cancelButton: "bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-xl",
+        confirmButton:
+          "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl mr-2",
+        cancelButton:
+          "bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-xl",
         popup: "swal2-popup-custom",
       },
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`https://y-xi-drab.vercel.app/api/challenges/${id}`, {
-            method: "DELETE",
-          });
+          const res = await fetch(
+            `https://y-xi-drab.vercel.app/api/challenges/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
           const data = await res.json();
           if (data.deletedCount) {
             Swal.fire({
@@ -137,7 +148,8 @@ const EditChallenge = () => {
               confirmButtonText: "OK",
               buttonsStyling: false,
               customClass: {
-                confirmButton: "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl",
+                confirmButton:
+                  "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl",
               },
             });
             navigate("/my-activities");
@@ -154,7 +166,7 @@ const EditChallenge = () => {
 
   return (
     <div className="py-20">
-      <div className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-lg">
+      <div className="max-w-xl mx-auto p-6 shadow-md rounded-lg">
         <h2 className="text-2xl text-center font-bold mb-6 text-[#297B33]">
           Edit Challenge
         </h2>
@@ -170,7 +182,9 @@ const EditChallenge = () => {
               onChange={handleChange}
               className="input input-bordered w-full"
             />
-            {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
+            {errors.title && (
+              <p className="text-red-500 text-sm">{errors.title}</p>
+            )}
           </div>
 
           {/* StartDate + EndDate */}
@@ -184,7 +198,9 @@ const EditChallenge = () => {
                 onChange={handleChange}
                 className="input input-bordered w-full"
               />
-              {errors.startDate && <p className="text-red-500 text-sm">{errors.startDate}</p>}
+              {errors.startDate && (
+                <p className="text-red-500 text-sm">{errors.startDate}</p>
+              )}
             </div>
             <div>
               <label className="block font-medium mb-1">End Date</label>
@@ -195,7 +211,9 @@ const EditChallenge = () => {
                 onChange={handleChange}
                 className="input input-bordered w-full"
               />
-              {errors.endDate && <p className="text-red-500 text-sm">{errors.endDate}</p>}
+              {errors.endDate && (
+                <p className="text-red-500 text-sm">{errors.endDate}</p>
+              )}
             </div>
           </div>
 
@@ -210,7 +228,9 @@ const EditChallenge = () => {
                 onChange={handleChange}
                 className="input input-bordered w-full"
               />
-              {errors.imageUrl && <p className="text-red-500 text-sm">{errors.imageUrl}</p>}
+              {errors.imageUrl && (
+                <p className="text-red-500 text-sm">{errors.imageUrl}</p>
+              )}
             </div>
             <div>
               <label className="block font-medium mb-1">Created By</label>
@@ -218,8 +238,8 @@ const EditChallenge = () => {
                 type="text"
                 name="createdBy"
                 value={user.email}
-                disabled
-                className="input w-full bg-gray-200"
+                // disabled
+                className="input input-bordered w-full "
               />
             </div>
           </div>
@@ -293,7 +313,7 @@ const EditChallenge = () => {
           <div className="flex flex-col md:flex-row gap-4">
             <button
               type="submit"
-              className="btn w-full md:w-1/2 bg-[#297B33] hover:bg-[#82B532] text-white flex items-center justify-center"
+              className="btn w-full md:w-1/2 bg-green-600 hover:bg-green-800 text-white flex items-center justify-center"
             >
               <FaEdit className="mr-2" /> Update
             </button>

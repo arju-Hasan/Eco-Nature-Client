@@ -42,6 +42,13 @@ const Navbar = () => {
       <li>
         <NavLink to={"/challenges-add"}>Add Challenges</NavLink>
       </li>
+      {user ? (
+        <li>
+          <NavLink to={"/dashboard"}>Dashboard</NavLink>
+        </li>
+      ) : (
+        ""
+      )}
     </>
   );
   return (
@@ -83,7 +90,7 @@ const Navbar = () => {
               </div>
               <Link
                 to={"/"}
-                className=" flex   items-center text-green-600 text-xl font-semibold"
+                className=" flex   items-center text-[#34be2f] text-xl font-semibold"
               >
                 <figure className="w-12 pr-1">
                   <img

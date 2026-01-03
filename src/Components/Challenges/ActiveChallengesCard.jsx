@@ -8,14 +8,15 @@ import { TbTargetArrow } from "react-icons/tb";
 
 const ActiveChallengesCard = ({ challenge }) => {
   return (
-    <div className=" md:flex-row  rounded-2xl shadow-md hover:shadow-2xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 max-w-4xl mx-auto border border-green-300">
+    <div className="md:flex-row  rounded-2xl shadow-md hover:shadow-2xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 mx-auto border border-green-300">
       {/* Left Side: Image */}
       <div className="flex flex-col justify-between h-full">
         <div>
           <img
             src={challenge.imageUrl}
             alt={challenge.title}
-            className="w-full h-40 md:h-60 lg:h-80 object-cover"
+            // className="w-full h-40 md:h-60 lg:h-80 object-cover"
+            className="w-full aspect-video object-cover rounded-lg"
           />
 
           <div className=" w-full p-6 flex flex-col justify-between">
