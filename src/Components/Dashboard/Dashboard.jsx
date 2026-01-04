@@ -26,6 +26,8 @@ import { IoHome } from "react-icons/io5";
 import { PiStudentBold } from "react-icons/pi";
 import uition from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext";
+import { GrContactInfo } from "react-icons/gr";
+import { BiSolidAddToQueue } from "react-icons/bi";
 
 const DashboardLayout = () => {
   const { user, signOutUser, loading } = useContext(AuthContext);
@@ -135,9 +137,9 @@ const DashboardLayout = () => {
                 }`
               }
               data-tip="Completed Deliveries"
-              to="/dashboard/mychallenge"
+              to="/my-activities"
             >
-              <SiGoogletasks />
+              <GrContactInfo />
               {/* <span className="is-drawer-close:hidden">Posted Request</span> */}
             </NavLink>
           </li>
@@ -149,9 +151,9 @@ const DashboardLayout = () => {
                 }`
               }
               data-tip="Completed Deliveries"
-              to="/dashboard/userprofile"
+              to="/challenges-add"
             >
-              <CgProfile />
+              <BiSolidAddToQueue />
               {/* <span className="is-drawer-close:hidden">Update profile</span> */}
             </NavLink>
           </li>
@@ -236,11 +238,11 @@ const DashboardLayout = () => {
                         }`
                       }
                       data-tip="Completed Deliveries"
-                      to="/dashboard/mychallenge"
+                      to="/my-activities"
                     >
-                      <SiGoogletasks />
+                      <GrContactInfo />
                       <span className="is-drawer-close:hidden">
-                        Posted Request
+                        My-activities
                       </span>
                     </NavLink>
                   </li>
@@ -252,11 +254,11 @@ const DashboardLayout = () => {
                         }`
                       }
                       data-tip="Completed Deliveries"
-                      to="/dashboard/userprofile"
+                      to="/challenges-add"
                     >
-                      <CgProfile />
+                      <BiSolidAddToQueue />
                       <span className="is-drawer-close:hidden">
-                        Update profile
+                        Add Challenges
                       </span>
                     </NavLink>
                   </li>
