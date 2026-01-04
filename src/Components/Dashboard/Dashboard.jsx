@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineLogout } from "react-icons/md";
-import { Link, NavLink, Outlet } from "react-router";
+import { Link, Navigate, NavLink, Outlet } from "react-router";
 import logoImg from "../../assets/logo.png";
 import {
   FaChalkboardTeacher,
@@ -71,11 +71,14 @@ const DashboardLayout = () => {
       confirmButtonText: "Yes, Logout!",
     }).then((result) => {
       if (result.isConfirmed) {
-        signOutUser().then();
-        Swal.fire({
-          title: "Logout!!!",
-          text: "Logout Successful",
-          icon: "success",
+        signOutUser().then(() => {
+          Swal.fire({
+            title: "Logout!!!",
+            text: "Logout Successful",
+            icon: "success",
+          }).then(() => {
+            Navigate("/login");
+          });
         });
       }
     });
