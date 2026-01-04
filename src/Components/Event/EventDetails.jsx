@@ -1,17 +1,17 @@
-// 
-// 
-// 
+//
+//
+//
 // import React, { useEffect, useState } from "react";
 // import { useParams, useNavigate } from "react-router";
 // import axios from "axios";
 // import { toast } from "react-toastify";
 // import { FaCalendarAlt, FaMapMarkerAlt, FaUser, FaUsers } from "react-icons/fa";
 // import Loading from "../../Pages/Loading";
-// 
+//
 // const EventDetails = () => {
 //   const { id } = useParams();
 //   const navigate = useNavigate();
-// 
+//
 //   const [event, setEvent] = useState(null);
 //   const [loading, setLoading] = useState(true);
 //   const [showModal, setShowModal] = useState(false);
@@ -21,9 +21,9 @@
 //     userLocation: "",
 //   });
 //   const [joining, setJoining] = useState(false); // Button loading state
-// 
-// 
-// 
+//
+//
+//
 //   // Fetch event details
 //   useEffect(() => {
 //     const fetchEvent = async () => {
@@ -39,7 +39,7 @@
 //     };
 //     fetchEvent();
 //   }, [id]);
-// 
+//
 //   // Open modal
 //   const handleJoinClick = () => {
 //     if (event.currentParticipants >= event.maxParticipants) {
@@ -48,26 +48,26 @@
 //       setShowModal(true);
 //     }
 //   };
-// 
+//
 //   // Form submit
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
 //       setJoining(true);
-// 
+//
 //       await axios.post("https://y-xi-drab.vercel.app/api/joined-events", {
 //         participantName: formData.name,
 //         participantEmail: formData.email,
-//         participantLocation: formData.userLocation, 
+//         participantLocation: formData.userLocation,
 //         challengeId: id,
 //       });
-// 
+//
 //       // Update participant count in frontend
 //       setEvent((prev) => ({
 //         ...prev,
 //         currentParticipants: prev.currentParticipants + 1,
 //       }));
-// 
+//
 //       const joinTime = new Date().toLocaleString();
 //       toast.success(`You joined the event at ${joinTime}`);
 //       setShowModal(false);
@@ -79,16 +79,16 @@
 //       setJoining(false);
 //     }
 //   };
-// 
+//
 //   if (loading) return <Loading />;
 //   if (!event) return <p className="flex justify-center mt-10">Event not found</p>;
-// 
+//
 //   return (
 //     <div className="max-w-3xl my-10 mx-auto p-6 mt-8 bg-white rounded-2xl shadow-lg border border-gray-200">
 //       {/* Event Details */}
 //       <h1 className="text-2xl font-semibold text-[#297B33] mb-4">{event.title}</h1>
 //       <p className="text-gray-700 mb-4">{event.description}</p>
-// 
+//
 //       <div className="space-y-2 text-gray-700 mb-6">
 //         <p className="flex items-center gap-2">
 //           <FaCalendarAlt className="text-[#297B33]" />
@@ -104,7 +104,7 @@
 //           <FaUsers className="text-[#297B33]" /> {event.currentParticipants} / {event.maxParticipants} participants
 //         </p>
 //       </div>
-// 
+//
 //       {/* Buttons */}
 //       <div className="flex gap-4">
 //         <button
@@ -125,7 +125,7 @@
 //           {event.currentParticipants >= event.maxParticipants ? "Full" : "Join Event"}
 //         </button>
 //       </div>
-// 
+//
 //       {/* Modal */}
 //       {showModal && (
 //         <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
@@ -139,7 +139,7 @@
 //             <h3 className="text-xl font-semibold text-[#297B33] mb-4">
 //               Join Event — {event.title}
 //             </h3>
-// 
+//
 //             <form onSubmit={handleSubmit} className="space-y-4">
 //               <div>
 //                 <label className="block text-sm font-medium text-gray-700">Name</label>
@@ -151,7 +151,7 @@
 //                   className="w-full border rounded-lg px-3 py-2 mt-1 focus:ring-2 focus:ring-[#297B33]"
 //                 />
 //               </div>
-// 
+//
 //               <div>
 //                 <label className="block text-sm font-medium text-gray-700">Email</label>
 //                 <input
@@ -162,7 +162,7 @@
 //                   className="w-full border rounded-lg px-3 py-2 mt-1 focus:ring-2 focus:ring-[#297B33]"
 //                 />
 //               </div>
-// 
+//
 //               <div>
 //                 <label className="block text-sm font-medium text-gray-700">Location</label>
 //                 <input
@@ -173,7 +173,7 @@
 //                   className="w-full border rounded-lg px-3 py-2 mt-1 focus:ring-2 focus:ring-[#297B33]"
 //                 />
 //               </div>
-// 
+//
 //               <div className="pt-4 flex justify-end">
 //                 <button
 //                   type="submit"
@@ -190,11 +190,8 @@
 //     </div>
 //   );
 // };
-// 
+//
 // export default EventDetails;
-
-
-
 
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
@@ -216,16 +213,15 @@ const EventDetails = () => {
   // console.log(user);
   const [formData, setFormData] = useState();
 
-
-useEffect(() => {
-  if (user) {
-    setFormData((prev) => ({
-      ...prev,
-      name: user.displayName || "",
-      email: user.email || "",
-    }));
-  }
-}, [user]);
+  useEffect(() => {
+    if (user) {
+      setFormData((prev) => ({
+        ...prev,
+        name: user.displayName || "",
+        email: user.email || "",
+      }));
+    }
+  }, [user]);
 
   // const [formData, setFormData] = useState({
   //   name: "",
@@ -233,14 +229,15 @@ useEffect(() => {
   //   userLocation: "",
   // });
 
-
   const [joining, setJoining] = useState(false);
 
   // Fetch event details
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await axios.get(`https://y-xi-drab.vercel.app/api/events/${id}`);
+        const res = await axios.get(
+          `https://y-xi-drab.vercel.app/api/events/${id}`
+        );
         setEvent(res.data);
       } catch (error) {
         console.error(error);
@@ -314,17 +311,18 @@ useEffect(() => {
   };
 
   if (loading) return <Loading />;
-  if (!event) return <p className="flex justify-center mt-10">Event not found</p>;
+  if (!event)
+    return <p className="flex justify-center mt-10">Event not found</p>;
 
   return (
-    <div className="max-w-3xl my-10 mx-auto p-6 mt-8 bg-white rounded-2xl shadow-lg border border-gray-200">
+    <div className="max-w-3xl my-10 bg-green-200 text-black mx-auto p-6 mt-8 rounded-2xl shadow-lg border border-green-400">
       {/* Event Details */}
       <h1 className="text-2xl font-semibold text-[#297B33] mb-4">
         {event.title}
       </h1>
-      <p className="text-gray-700 mb-4">{event.description}</p>
+      <p className=" mb-4">{event.description}</p>
 
-      <div className="space-y-2 text-gray-700 mb-6">
+      <div className="space-y-2  mb-6">
         <p className="flex items-center gap-2">
           <FaCalendarAlt className="text-[#297B33]" />
           {new Date(event.date).toLocaleString()}
@@ -336,8 +334,8 @@ useEffect(() => {
           <FaUser className="text-[#297B33]" /> {event.organizer}
         </p>
         <p className="flex items-center gap-2">
-          <FaUsers className="text-[#297B33]" />{" "}
-          {event.currentParticipants} / {event.maxParticipants} participants
+          <FaUsers className="text-[#297B33]" /> {event.currentParticipants} /{" "}
+          {event.maxParticipants} participants
         </p>
       </div>
 
@@ -382,9 +380,7 @@ useEffect(() => {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Name
-                </label>
+                <label className="block text-sm font-medium ">Name</label>
                 <input
                   type="text"
                   value={formData.name}
@@ -398,9 +394,7 @@ useEffect(() => {
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Email
-                </label>
+                <label className="block text-sm font-medium ">Email</label>
                 <input
                   type="email"
                   value={formData.email}
@@ -414,9 +408,7 @@ useEffect(() => {
 
               {/* Location */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Location
-                </label>
+                <label className="block text-sm font-medium ">Location</label>
                 <input
                   type="text"
                   value={formData.userLocation}

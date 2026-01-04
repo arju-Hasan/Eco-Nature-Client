@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import ParticipantCard from "../ParticipantCard";
 import Swal from "sweetalert2";
 
-
 const ViewChallenge = () => {
   const { participants } = useParticipants();
   const { id } = useParams();
@@ -101,8 +100,6 @@ const ViewChallenge = () => {
 
       console.log({ ...formData, challengeId: localChallenge._id });
 
-
-
       if (participantRes.status === 400) {
         const data = await participantRes.json();
         toast.error(data.message || "You already joined this challenge!");
@@ -146,16 +143,16 @@ const ViewChallenge = () => {
         toast.error("Failed to join. Please try again.");
       }
     } catch (error) {
-  console.error("Error submitting form:", error);
-  toast.error(error.message || "Something went wrong.");
-}
+      console.error("Error submitting form:", error);
+      toast.error(error.message || "Something went wrong.");
+    }
   };
 
   return (
     <div>
       <Container>
         {/* Challenge Card */}
-        <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-md overflow-hidden w-full mx-auto border border-gray-100 my-10">
+        <div className="flex flex-col md:flex-row  rounded-2xl shadow-md overflow-hidden w-full mx-auto border border-green-400 my-10">
           {/* Left: Image */}
           <div className="md:w-1/2 w-full">
             <img
@@ -166,46 +163,46 @@ const ViewChallenge = () => {
           </div>
 
           {/* Right: Info */}
-          <div className="md:w-1/2 w-full p-6 flex flex-col justify-between bg-gray-50">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          <div className="md:w-1/2 w-full p-6 flex flex-col justify-between ">
+            <h2 className="text-2xl font-semibold  mb-4">
               {localChallenge.title}
             </h2>
 
-            <div className="text-start space-y-2 text-gray-700 text-sm">
+            <div className="text-start space-y-2 p-2 text-sm">
               <p>
-                <span className="font-medium text-gray-900">Category:</span>{" "}
+                <span className="font-medium ">Category:</span>{" "}
                 {localChallenge.category}
               </p>
               <p>
-                <span className="font-medium text-gray-900">Duration:</span>{" "}
+                <span className="font-medium ">Duration:</span>{" "}
                 {localChallenge.duration} days
               </p>
               <p>
-                <span className="font-medium text-gray-900">Participants:</span>{" "}
+                <span className="font-medium ">Participants:</span>{" "}
                 {localChallenge.participants}
               </p>
               <p>
-                <span className="font-medium text-gray-900">Created By:</span>{" "}
+                <span className="font-medium ">Created By:</span>{" "}
                 {localChallenge.createdBy}
               </p>
               <p>
-                <span className="font-medium text-gray-900">Start Date:</span>{" "}
+                <span className="font-medium ">Start Date:</span>{" "}
                 {localChallenge.startDate}
               </p>
               <p>
-                <span className="font-medium text-gray-900">End Date:</span>{" "}
+                <span className="font-medium ">End Date:</span>{" "}
                 {localChallenge.endDate}
               </p>
               <p>
-                <span className="font-medium text-gray-900">Target:</span>{" "}
+                <span className="font-medium ">Target:</span>{" "}
                 {localChallenge.target}
               </p>
               <p>
-                <span className="font-medium text-gray-900">Impact Metric:</span>{" "}
+                <span className="font-medium ">Impact Metric:</span>{" "}
                 {localChallenge.impactMetric}
               </p>
               <p>
-                <span className="font-medium text-gray-900">Description:</span>{" "}
+                <span className="font-medium ">Description:</span>{" "}
                 {localChallenge.description}
               </p>
             </div>
@@ -222,10 +219,10 @@ const ViewChallenge = () => {
         {/* Join Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/70 bg-opacity-30 flex justify-center items-center z-50">
-            <div className="bg-white rounded-2xl w-11/12 md:w-2/5 p-6 shadow-xl relative overflow-y-auto">
+            <div className="bg-green-300 rounded-2xl w-11/12 md:w-2/5 p-6 shadow-xl relative overflow-y-auto">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl"
+                className="absolute top-3 font-bold right-3 text-gray-500 hover:text-gray-700 text-2xl"
               >
                 ✕
               </button>
@@ -246,66 +243,76 @@ const ViewChallenge = () => {
                       value={formData.participantName}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
+                      className="w-full border text-black rounded-lg px-3 py-2 focus:ring focus:ring-green-600"
                     />
                   </div>
 
                   <div className="w-1/2">
-                    <label className="block text-gray-700 text-sm mb-1">Email</label>
+                    <label className="block text-gray-700 text-sm mb-1">
+                      Email
+                    </label>
                     <input
                       type="email"
                       name="participantEmail"
                       value={formData.participantEmail}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
+                      className="w-full border text-black rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
                     />
                   </div>
                 </div>
 
                 <div className="flex gap-3">
                   <div className="w-1/2">
-                    <label className="block text-gray-700 text-sm mb-1">Location</label>
+                    <label className="block text-gray-700 text-sm mb-1">
+                      Location
+                    </label>
                     <input
                       type="text"
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
+                      className="w-full border text-black rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
                     />
                   </div>
 
                   <div className="w-1/2">
-                    <label className="block text-gray-700 text-sm mb-1">Join Date</label>
+                    <label className="block text-gray-700 text-sm mb-1">
+                      Join Date
+                    </label>
                     <input
                       type="text"
                       name="joinDate"
                       value={formData.joinDate}
                       readOnly
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-gray-100"
+                      className="w-full border text-black rounded-lg px-3 py-2 bg-gray-100"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 text-sm mb-1">Image URL</label>
+                  <label className="block text-gray-700 text-sm mb-1">
+                    Image URL
+                  </label>
                   <input
                     type="url"
                     name="imageUrl"
                     value={formData.imageUrl}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
+                    className="w-full border text-black rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 text-sm mb-1">Description / Notes</label>
+                  <label className="block text-gray-700 text-sm mb-1">
+                    Description / Notes
+                  </label>
                   <textarea
                     name="notes"
                     value={formData.notes}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
+                    className="w-full border text-black rounded-lg px-3 py-2 focus:ring focus:ring-green-200"
                     rows="3"
                   ></textarea>
                 </div>
@@ -327,7 +334,8 @@ const ViewChallenge = () => {
             Joined Participants in This Challenge
           </h2>
           <p className="text-gray-600 mt-2 text-sm md:text-base">
-            See who has joined and is actively contributing to making a difference in this challenge.
+            See who has joined and is actively contributing to making a
+            difference in this challenge.
           </p>
         </div>
 
