@@ -28,6 +28,7 @@ import uition from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext";
 import { GrContactInfo } from "react-icons/gr";
 import { BiSolidAddToQueue } from "react-icons/bi";
+import LiveTime from "./Livetime";
 
 const DashboardLayout = () => {
   const { user, signOutUser, loading } = useContext(AuthContext);
@@ -104,6 +105,9 @@ const DashboardLayout = () => {
           </label>
           <div className="px-4 text-2xl font-bold">
             <span className="text-2xl font-bold">Eco Tracking Dashboard</span>
+          </div>
+          <div className="navbar-end text-2xl text-red-500 font-semibold">
+            <LiveTime />
           </div>
         </nav>
 
